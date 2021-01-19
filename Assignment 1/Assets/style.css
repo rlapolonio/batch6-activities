@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@700&display=swap');
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#header {
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+h1 {
+    font-family: 'Archivo', sans-serif;
+    font-size: 150px;
+}
+
+P {
+    position: relative;
+    margin-left: 150px;
+    font-style: italic;
+    font-size: 20px;
+}
+
+#link {
+    position: relative;
+    text-align: right;
+    margin-top: 200px;
+}
