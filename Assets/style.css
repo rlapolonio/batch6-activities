@@ -86,10 +86,18 @@ body{
 }
 
 .img3{
+    background: url("./images/project_1.png");
+    background-position: left;
+    background-size: contain;
+}
+
+.img4{
     background: url("./images/temp.png");
     background-position: center;
     background-size: contain;
 }
+
+
 
 .img{
     width: 100%;

@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Cairo', sans-serif;
+}
+
+body {
+    background-color: #1c6000;
+}
+
+nav .banner {
+    position: fixed;
+    position: sticky;
+    z-index: 10;
+    left: 0;
+    right: 0;
+    top: 0;
+    
+}
+
+
+.header {
+    background-color: cyan;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+    padding: 0 20px;
+}
+
+.title {
+    font-size: 80px;
+    background-color: coral;
+    line-height: 100%;
+    font-weight: 800;
+    letter-spacing: 5px;
+    text-transform:uppercase;
+}
+
+.nav-link {
+    list-style: none;
+    display: inline-flex;
+    width: 25%;
+    background-color: darkcyan;
+    justify-content: space-between;
+    font-size: 25px;
+}
+
+.nav-link li a {
+    text-decoration: none;
+    color: black;
+    text-transform: uppercase;
+}
+
+.d-box {
+    display: block;
+    position: relative;
+    margin-top: 0px;
+    background-color: cadetblue;
+}
+
+.showcase {
+    width: 1300px;
+    background-color: azure;
+}
+
+.flex-box {
+    display: flex;
+    width: 1200px;
+    flex-wrap: wrap;
+    background-color: antiquewhite;
+    margin: 0 auto;
+}
+
+.box {
+    width: 30%;
+    height: 500px;
+    background-color: aqua;
+    margin: 10px 10px;
+    border-radius: 10px;
+    padding: 10px 10px;
+    box-shadow: 0px 0px 100px #bebebe;
+}
+
+.heading {
+    font-size: 30px;
+    border-bottom: 2px solid #015249;
+}
+
+
+.img1 {
+    background: url("./images/assignment_1.png");
+    background-position:left;
+}
+
+.img2 {
+    background: url("./images/activity_1.png");
+    background-position: center;
+}
+
+.img3 {
+    background: url("./images/temp.png");
+    background-position: center;
+    background-size: contain;
+}
+
+.img {
+    width: 100%;
+    height: 50%;
+    background-size: cover;
+    margin-top: 5px;
+}
+
