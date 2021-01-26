@@ -97,6 +97,7 @@ form p {
     display: none;
     font-size: 1em;
     margin-top: 5px;
+    position: relative;
 }
 
 .error-active {
@@ -283,6 +284,7 @@ label.checklist {
     margin-top: 10px;
     letter-spacing: 2px;
     height: 2em;
+    transition: all 0.3s ease 0s;
 }
 
 #submit:hover {
