@@ -125,6 +125,12 @@ body {
 }
 
 .img4 {
+    background: url("./images/activity_2.png");
+    background-position: left;
+    background-size: contain;
+}
+
+.img-default {
     background: url("./images/temp.png");
     background-position: center;
     background-size: contain;

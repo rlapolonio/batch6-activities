@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./assets/styles.css">
+        <title>Survey Form</title>
+    </head>
+    <body>
+        <section class="wrapper">
+            <section class="banner-back"></section>
+            <section class="banner"><span class="banner-text">AVION</span></section>
+            <section class="banner2"><span class="banner-text2">School</span></section>
+            <section class="banner3"><span class="banner-text3">Become a <br>Software Engineer<br>in 12 weeks</span></section>
+            <section class="container">
+                <div class="box">
+                    <div class="title">
+                        <h1 id="title">Avion School | Survey Form</h1>
+                        <p id="description">Thank you for taking the time to help us improve our program</p>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="instruction">
+                        <p id="instruction">Please fill out ALL the fields.</p>
+                    </div>
+                    <div class="form">
+                        <form action="./Success.html" id="survey-form" novalidate>
+                            <p class="item"><label for="name" id="name-label" >Name</label></p>
+                                <input type="text" name="name" id="name" placeholder="Last name, First name">
+                                <span class="error" id="name-error">Please enter a name.</span>
+                            <p class="item"><label for="email" id="email-label">E-mail</label></p>
+                                <input type="email" name="email" id="email" placeholder="example@domain.com">
+                                <span class="error" id="email-error1">Please enter an email address.</span>
+                                <span class="error" id="email-error2">Please enter an e-email address with a valid format.</span>
+                            <p class="item"><label for="exp" id="number-label">Years of Coding Experience</label></p>
+                                <input type="number" name="exp" id="number" placeholder="0 - 99"  min="0" max="99">
+                                <span class="error" id="num-error1">Please enter a valid number.</span>
+                                <span class="error" id="num-error2">You can't have lived that long, can you? Try again.</span>
+                            <p class="item"><label for="industry" id="drop-down">Which best describes your current industry?</label></p>
+                                <select name="role" id="role">
+                                    <option value="none" selected>---</option>
+                                    <option value="Architecture">Architecture</option>
+                                    <option value="Construction">Construction</option>
+                                    <option value="Engineering">Engineering</option>
+                                    <option value="Web Development">Web Development</option>
+                                    <option value="Game Development">Game Development</option>
+                                    <option value="Social Works">Social Works</option>
+                                    <option value="Liberal Arts">Liberal Arts</option>
+                                    <option value="Cultural Sciences">Cultural Sciences</option>
+                                    <option value="Mathematics">Mathematics</option>
+                                    <option value="Theology">Theology</option>
+                                    <option value="Others">Others</option>
+                                </select>
+                            <p class="item" id="code-hrs">How many hours a week do you spend on Web Development or on any Coding Activity?</p>
+                                <ul class="radio-list">
+                                    <li class="radio-item"><input type="radio" name="code-hrs" id="0-5" value="0-5" checked>
+                                        <label for="0-5">0 to 5 hours</label></li>
+                                    <li class="radio-item"><input type="radio" name="code-hrs" id="6-10" value="6-10">
+                                        <label for="6-10">6 to 10 hours</label></li>
+                                    <li class="radio-item"><input type="radio" name="code-hrs" id="11-20" value="11-20">
+                                        <label for="11-20">11 to 20 hours</label></li>
+                                    <li class="radio-item"><input type="radio" name="code-hrs" id="21-40" value="21-40">
+                                        <label for="21-40">21 to 40 hours</label></li>
+                                    <li class="radio-item"><input type="radio" name="code-hrs" id=">40" value=">40">
+                                        <label for=">40">more than 40 hours</label></li>
+                                </ul>
+                            <p id="recommend-label" class="item">Would you recommend Avion School to a friend?</p>
+                                <ul class="radio-list">
+                                    <li class="radio-item"><input type="radio" name="recommend" id="definitely" value="definitely" checked>
+                                        <label for="definitely">Definitely</label></li>
+                                    <li class="radio-item"><input type="radio" name="recommend" id="maybe" value="maybe">
+                                        <label for="maybe">Maybe</label></li>
+                                    <li class="radio-item"><input type="radio" name="recommend" id="not-sure" value="not-sure">
+                                        <label for="not-sure">Not Sure</label></li>
+                                </ul>
+                            <p class="item" id="program-label">What part of the program would you like to see improved?</p>
+                                <input type="checkbox" name="area" id="front-end" value="front-end" checked>
+                                    <label for="choice1" class="check-list">Front-end Projects</label><br>
+                                <input type="checkbox" name="area" id="back-end" value="back-end">
+                                    <label for="choice2" class="check-list">Back-end Projects</label><br>
+                                <input type="checkbox" name="area" id="data-vis" value="data-vis">
+                                    <label for="choice3" class="check-list">Data Visualization</label><br>
+                                <input type="checkbox" name="area" id="challenge" value="challenge">
+                                    <label for="choice3" class="check-list">Challenges</label><br>
+                                <input type="checkbox" name="area" id="open-source" value="open-source">
+                                    <label for="choice3" class="check-list">Open Source Community</label><br>
+                                <input type="checkbox" name="area" id="glitter" value="glitter">
+                                    <label for="choice3" class="check-list">Glitter Help Rooms</label><br>
+                                <input type="checkbox" name="area" id="videos" value="videos">
+                                    <label for="choice3" class="check-list">Videos</label><br>
+                                <input type="checkbox" name="area" id="meetups" value="meetups">
+                                    <label for="choice3" class="check-list">City Meetups</label><br>
+                                <input type="checkbox" name="area" id="wiki" value="wiki">
+                                    <label for="choice3" class="check-list">Wiki</label><br>
+                                <input type="checkbox" name="area" id="forum" value="forum">
+                                    <label for="choice3" class="check-list">Forum</label><br>
+                                <input type="checkbox" name="area" id="add-courses" value="add-courses" onClick="disable_enable()">
+                                    <label for="choice3" class="check-list">Additional Courses<span class="notes"> Please specify</span></label><br>
+                                    <p class="sub-item"><label for="specify" id="specify">Please specify what course(s) you would like to be added in our program:</label></p>
+                                        <textarea name="specify" id="specify-field" rows="5" cols="20" placeholder="Please put a comma (,) in between courses, if you can."></textarea>
+                            <p class="item"><label for="comments" id="comments">Additional Comments</label></p>
+                                <textarea name="comments" id="comments-field" rows="5" cols="20" placeholder="(Optional) We would like to hear your thoughts!"></textarea>
+                                <div class="divider"></div>
+                                <div class="button"><input type="submit" name="submit" value="SUBMIT" id="submit"></div>
+                        </form>
+                    </div>
+                    
+                </div>
+            </section>
+        </section>
+    <script src="./assets/scripts.js"></script>
+    </body>
+    <footer>
+        <div class="footer">
+            <ul class="footer-list">
+                <li class="logo">rlapolonio</li>
+                <li class="divs">||</li>
+                <li class="home-link"><a href="https://rlapolonio.github.io/batch6-activities">PORTFOLIO</a></li>
+            </ul>
+        </div>
+    </footer>
+</html>
