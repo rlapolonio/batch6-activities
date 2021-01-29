@@ -98,6 +98,24 @@ body {
     text-align: center;
 }
 
+.info .reset-text {
+    font-style: italic;
+    font-size: 25px;
+    font-weight: 400;
+}
+
+.info .reset-text a {
+    font-weight: 600;
+    text-decoration: none;
+    color: black;
+    transition: all 0.3s ease 0s;
+}
+
+.info .reset-text a:hover {
+    color: #f2ca5c;
+    font-size: 30px;
+}
+
 .board {
     position: relative;
     display: flex;
@@ -109,6 +127,7 @@ body {
     max-width: 600px;
     max-height: 600px;
     margin-top: 50px;
+    box-shadow: 0 0 20px black;
 }
 
 
@@ -139,6 +158,11 @@ body {
 .piece {
     width: 85%;
     height: auto;
+    transition: all 0.3s ease 0s;
+}
+
+.piece:hover {
+    transform: scale(1.2);
 }
 
 /* TILE COLOR PATTERN */
@@ -177,12 +201,19 @@ body {
         display: flex;
         justify-content: center;
         margin-top: 65px;
+        padding-top: 10px;
+    }
+
+    .info .reset-text {
+        font-style: italic;
+        font-size: 15px;
+        font-weight: 400;
     }
 
     .board {
         float: left;
-        margin-bottom: 20px;
-        margin-top: -25px;
+        margin-top: -5px;
+        box-shadow: 0 0 10px black;
     }
 
     .title {

@@ -32,7 +32,8 @@
             <section class="intro">
                 <h1 class="title">Let's Play<br>Chess!</h1>
                 <p class="info">
-                    Practice your moves on the board!
+                    Practice your moves on the board!<br>
+                    <span class="reset-text"><a href="ChessBoard.html">Reload the page</a> to reset the board</span>
                 </p>
             </section>
 
@@ -40,92 +41,88 @@
             <section class="board">
                 <section class="container">
                     <div class="flex-row-container row-1">
-                        <div class="flex-tile"><img src="./assets/rook-black.png" alt="rook-black" class="piece"></div>
-                        <div class="flex-tile"><img src="./assets/knight-black.png" alt="knight-black" class="piece"></div>
-                        <div class="flex-tile"><img src="./assets/bishop-black.png" alt="bishop-black" class="piece"></div>
-                        <div class="flex-tile"><img src="./assets/queen-black.png" alt="queen-black" class="piece"></div>
-                        <div class="flex-tile"><img src="./assets/king-black.png" alt="king-black" class="piece"></div>
-                        <div class="flex-tile"><img src="./assets/bishop-black.png" alt="bishop-black" class="piece"></div>
-                        <div class="flex-tile"><img src="./assets/knight-black.png" alt="knight-black" class="piece"></div>
-                        <div class="flex-tile"><img src="./assets/rook-black.png" alt="rook-black" class="piece"></div>
+                        <div class="flex-tile" id="a8"><img src="./assets/rook-black.png" alt="rook-black" class="piece" id="rook-blk1"></div>
+                        <div class="flex-tile" id="b8"><img src="./assets/knight-black.png" alt="knight-black" class="piece" id="knight-blk1"></div>
+                        <div class="flex-tile" id="c8"><img src="./assets/bishop-black.png" alt="bishop-black" class="piece" id="bishop-blk1"></div>
+                        <div class="flex-tile" id="d8"><img src="./assets/queen-black.png" alt="queen-black" class="piece" id="queen-blk"></div>
+                        <div class="flex-tile" id="e8"><img src="./assets/king-black.png" alt="king-black" class="piece" id="king-blk"></div>
+                        <div class="flex-tile" id="f8"><img src="./assets/bishop-black.png" alt="bishop-black" class="piece" id="bishop-blk2"></div>
+                        <div class="flex-tile" id="g8"><img src="./assets/knight-black.png" alt="knight-black" class="piece" id="knight-blk2"></div>
+                        <div class="flex-tile" id="h8"><img src="./assets/rook-black.png" alt="rook-black" class="piece" id="rook-blk2"></div>
                     </div>
                     <div class="flex-row-container row-2">
-                        <div class="flex-tile"><img src="./assets/pawn-black.png" alt="pawn-black" class="piece"></div>
-                        <div class="flex-tile"><img src="./assets/pawn-black.png" alt="pawn-black" class="piece"></div>
-                        <div class="flex-tile"><img src="./assets/pawn-black.png" alt="pawn-black" class="piece"></div>
-                        <div class="flex-tile"><img src="./assets/pawn-black.png" alt="pawn-black" class="piece"></div>
-                        <div class="flex-tile"><img src="./assets/pawn-black.png" alt="pawn-black" class="piece"></div>
-                        <div class="flex-tile"><img src="./assets/pawn-black.png" alt="pawn-black" class="piece"></div>
-                        <div class="flex-tile"><img src="./assets/pawn-black.png" alt="pawn-black" class="piece"></div>
-                        <div class="flex-tile"><img src="./assets/pawn-black.png" alt="pawn-black" class="piece"></div>
+                        <div class="flex-tile" id="a7"><img src="./assets/pawn-black.png" alt="pawn-black" class="piece" id="pawn-blk1"></div>
+                        <div class="flex-tile" id="b7"><img src="./assets/pawn-black.png" alt="pawn-black" class="piece" id="pawn-blk2"></div>
+                        <div class="flex-tile" id="c7"><img src="./assets/pawn-black.png" alt="pawn-black" class="piece" id="pawn-blk3"></div>
+                        <div class="flex-tile" id="d7"><img src="./assets/pawn-black.png" alt="pawn-black" class="piece" id="pawn-blk4"></div>
+                        <div class="flex-tile" id="e7"><img src="./assets/pawn-black.png" alt="pawn-black" class="piece" id="pawn-blk5"></div>
+                        <div class="flex-tile" id="f7"><img src="./assets/pawn-black.png" alt="pawn-black" class="piece" id="pawn-blk6"></div>
+                        <div class="flex-tile" id="g7"><img src="./assets/pawn-black.png" alt="pawn-black" class="piece" id="pawn-blk7"></div>
+                        <div class="flex-tile" id="h7"><img src="./assets/pawn-black.png" alt="pawn-black" class="piece" id="pawn-blk8"></div>
                     </div>
                     <div class="flex-row-container row-3">
-                        <div class="flex-tile"></div>
-                        <div class="flex-tile"></div>
-                        <div class="flex-tile"></div>
-                        <div class="flex-tile"></div>
-                        <div class="flex-tile"></div>
-                        <div class="flex-tile"></div>
-                        <div class="flex-tile"></div>
-                        <div class="flex-tile"></div>
+                        <div class="flex-tile" id="a6"></div>
+                        <div class="flex-tile" id="b6"></div>
+                        <div class="flex-tile" id="c6"></div>
+                        <div class="flex-tile" id="d6"></div>
+                        <div class="flex-tile" id="e6"></div>
+                        <div class="flex-tile" id="f6"></div>
+                        <div class="flex-tile" id="g6"></div>
+                        <div class="flex-tile" id="h6"></div>
                     </div>
                     <div class="flex-row-container row-4">
-                        <div class="flex-tile"></div>
-                        <div class="flex-tile"></div>
-                        <div class="flex-tile"></div>
-                        <div class="flex-tile"></div>
-                        <div class="flex-tile"></div>
-                        <div class="flex-tile"></div>
-                        <div class="flex-tile"></div>
-                        <div class="flex-tile"></div>
+                        <div class="flex-tile" id="a5"></div>
+                        <div class="flex-tile" id="b5"></div>
+                        <div class="flex-tile" id="c5"></div>
+                        <div class="flex-tile" id="d5"></div>
+                        <div class="flex-tile" id="e5"></div>
+                        <div class="flex-tile" id="f5"></div>
+                        <div class="flex-tile" id="g5"></div>
+                        <div class="flex-tile" id="h5"></div>
                     </div>
                     <div class="flex-row-container row-5">
-                        <div class="flex-tile"></div>
-                        <div class="flex-tile"></div>
-                        <div class="flex-tile"></div>
-                        <div class="flex-tile"></div>
-                        <div class="flex-tile"></div>
-                        <div class="flex-tile"></div>
-                        <div class="flex-tile"></div>
-                        <div class="flex-tile"></div>
+                        <div class="flex-tile" id="a4"></div>
+                        <div class="flex-tile" id="b4"></div>
+                        <div class="flex-tile" id="c4"></div>
+                        <div class="flex-tile" id="d4"></div>
+                        <div class="flex-tile" id="e4"></div>
+                        <div class="flex-tile" id="f4"></div>
+                        <div class="flex-tile" id="g4"></div>
+                        <div class="flex-tile" id="h4"></div>
                     </div>
                     <div class="flex-row-container row-6">
-                        <div class="flex-tile"></div>
-                        <div class="flex-tile"></div>
-                        <div class="flex-tile"></div>
-                        <div class="flex-tile"></div>
-                        <div class="flex-tile"></div>
-                        <div class="flex-tile"></div>
-                        <div class="flex-tile"></div>
-                        <div class="flex-tile"></div>
+                        <div class="flex-tile" id="a3"></div>
+                        <div class="flex-tile" id="b3"></div>
+                        <div class="flex-tile" id="c3"></div>
+                        <div class="flex-tile" id="d3"></div>
+                        <div class="flex-tile" id="e3"></div>
+                        <div class="flex-tile" id="f3"></div>
+                        <div class="flex-tile" id="g3"></div>
+                        <div class="flex-tile" id="h3"></div>
                     </div>
                     <div class="flex-row-container row-7">
-                        <div class="flex-tile"><img src="./assets/pawn-white.png" alt="pawn-white" class="piece"></div>
-                        <div class="flex-tile"><img src="./assets/pawn-white.png" alt="pawn-white" class="piece"></div>
-                        <div class="flex-tile"><img src="./assets/pawn-white.png" alt="pawn-white" class="piece"></div>
-                        <div class="flex-tile"><img src="./assets/pawn-white.png" alt="pawn-white" class="piece"></div>
-                        <div class="flex-tile"><img src="./assets/pawn-white.png" alt="pawn-white" class="piece"></div>
-                        <div class="flex-tile"><img src="./assets/pawn-white.png" alt="pawn-white" class="piece"></div>
-                        <div class="flex-tile"><img src="./assets/pawn-white.png" alt="pawn-white" class="piece"></div>
-                        <div class="flex-tile"><img src="./assets/pawn-white.png" alt="pawn-white" class="piece"></div>
+                        <div class="flex-tile" id="a2"><img src="./assets/pawn-white.png" alt="pawn-white" class="piece" id="pawn-wht1"></div>
+                        <div class="flex-tile" id="b2"><img src="./assets/pawn-white.png" alt="pawn-white" class="piece" id="pawn-wht2"></div>
+                        <div class="flex-tile" id="c2"><img src="./assets/pawn-white.png" alt="pawn-white" class="piece" id="pawn-wht3"></div>
+                        <div class="flex-tile" id="d2"><img src="./assets/pawn-white.png" alt="pawn-white" class="piece" id="pawn-wht4"></div>
+                        <div class="flex-tile" id="e2"><img src="./assets/pawn-white.png" alt="pawn-white" class="piece" id="pawn-wht5"></div>
+                        <div class="flex-tile" id="f2"><img src="./assets/pawn-white.png" alt="pawn-white" class="piece" id="pawn-wht6"></div>
+                        <div class="flex-tile" id="g2"><img src="./assets/pawn-white.png" alt="pawn-white" class="piece" id="pawn-wht7"></div>
+                        <div class="flex-tile" id="h2"><img src="./assets/pawn-white.png" alt="pawn-white" class="piece" id="pawn-wht8"></div>
                     </div>
                     <div class="flex-row-container row-8">        
-                        <div class="flex-tile"><img src="./assets/rook-white.png" alt="rook-white" class="piece"></div>
-                        <div class="flex-tile"><img src="./assets/knight-white.png" alt="knight-white" class="piece"></div>
-                        <div class="flex-tile"><img src="./assets/bishop-white.png" alt="bishop-white" class="piece"></div>
-                        <div class="flex-tile"><img src="./assets/queen-white.png" alt="queen-white" class="piece"></div>
-                        <div class="flex-tile"><img src="./assets/king-white.png" alt="king-white" class="piece"></div>
-                        <div class="flex-tile"><img src="./assets/bishop-white.png" alt="bishop-white" class="piece"></div>
-                        <div class="flex-tile"><img src="./assets/knight-white.png" alt="knight-white" class="piece"></div>
-                        <div class="flex-tile"><img src="./assets/rook-white.png" alt="rook-white" class="piece"></div>
+                        <div class="flex-tile" id="a1"><img src="./assets/rook-white.png" alt="rook-white" class="piece" id="rook-wht1"></div>
+                        <div class="flex-tile" id="b1"><img src="./assets/knight-white.png" alt="knight-white" class="piece" id="knight-wht1"></div>
+                        <div class="flex-tile" id="c1"><img src="./assets/bishop-white.png" alt="bishop-white" class="piece" id="bishop-wht1"></div>
+                        <div class="flex-tile" id="d1"><img src="./assets/queen-white.png" alt="queen-white" class="piece" id="queen-wht"></div>
+                        <div class="flex-tile" id="e1"><img src="./assets/king-white.png" alt="king-white" class="piece" id="king-wht"></div>
+                        <div class="flex-tile" id="g1"><img src="./assets/bishop-white.png" alt="bishop-white" class="piece" id="bishop-wht2"></div>
+                        <div class="flex-tile" id="h1"><img src="./assets/knight-white.png" alt="knight-white" class="piece" id="knight-wht2"></div>
+                        <div class="flex-tile" id="g1"><img src="./assets/rook-white.png" alt="rook-white" class="piece" id="rook-wht2"></div>
                     </div>
                 </section>
             </section>
         </section>
-
-
-
-        
         <script src="./assets/scripts.js"></script>
     </body>
 </html>
