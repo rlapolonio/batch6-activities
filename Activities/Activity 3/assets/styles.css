@@ -66,7 +66,13 @@ body {
 .nav-links li a {
     text-decoration: none;
     color: white;
+    transition: all 0.3s ease 0s;
 }
+
+.nav-links li a:hover {
+    color:#f2ca5c;
+}
+
 
 .wrapper {
     height: 100vh;
