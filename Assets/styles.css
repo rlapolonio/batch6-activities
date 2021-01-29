@@ -130,11 +130,12 @@ body {
     background-size: contain;
 }
 
-.img-default {
-    background: url("./images/temp.png");
-    background-position: center;
-    background-size: contain;
+.img5 {
+    background: url("./images/activity_3.png");
+    background-position: right;
+    background-size:cover;
 }
+
 
 .img {
     width: 100%;

@@ -1,0 +1,286 @@
+/******************************************
+*  Created On : 2020/01/27
+*******************************************/
+@import url('https://fonts.googleapis.com/css2?family=Allura&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Advent+Pro&display=swap');
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    background-color: rgba(248, 231, 187, .6);
+}
+
+.banner-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 75px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+}
+
+.banner {
+    width: 1450px;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+.brand {
+    font-family: 'Advent Pro', sans-serif;
+    font-size: 30px;
+    letter-spacing: 5px;
+}
+
+.brand a {
+    text-decoration: none;
+    color: white;
+}
+
+
+.nav-links {
+    display: inline-flex;
+    justify-content: space-between;
+    font-family: 'Advent Pro', sans-serif;
+    text-transform: uppercase;
+    width: 400px;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.nav-links li {
+    list-style: none;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: white;
+}
+
+.wrapper {
+    height: 100vh;
+    width: 1450px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.intro {
+    width: 750px;
+}
+
+.title {
+    font-family: 'Allura', cursive;
+    font-size: 200px;
+    line-height: 175px;
+    text-align: right;
+    margin-right: 50px;
+    color: #111;
+}
+
+.info {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.board {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:#660000;
+    width: 600px;
+    height: 600px;
+    max-width: 600px;
+    max-height: 600px;
+    margin-top: 50px;
+}
+
+
+.container {
+    width: 90%;
+    height: 90%;
+    display: flex;
+    background-color: #660000;
+    flex-wrap: wrap;
+    border: solid 2px #f2ca5c;
+}
+
+
+.flex-row-container {
+    display: flex;
+    width: 100%;
+    height: calc(100% / 8);
+}
+
+.flex-tile {
+   width: calc(100% / 8);
+   height: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.piece {
+    width: 85%;
+    height: auto;
+}
+
+/* TILE COLOR PATTERN */
+
+.row-1 div:nth-child(even), .row-2 div:nth-child(odd), 
+.row-3 div:nth-child(even), .row-4 div:nth-child(odd),
+.row-5 div:nth-child(even), .row-6 div:nth-child(odd),
+.row-7 div:nth-child(even), .row-8 div:nth-child(odd) {
+    background-color: #004474;
+}
+
+.row-1 div:nth-child(odd), .row-2 div:nth-child(even),
+.row-3 div:nth-child(odd), .row-4 div:nth-child(even),
+.row-5 div:nth-child(odd), .row-6 div:nth-child(even),
+.row-7 div:nth-child(odd), .row-8 div:nth-child(even) {
+    background-color: #f8e7bb;
+}
+
+/* WEB RESPONSIVENESS */
+
+@media screen and (max-width: 1449px) {
+
+    .wrapper {
+        width: 750px;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .banner {
+        width: 100%;
+        padding: 0 25px;
+    }
+
+    .intro {
+        float: left;
+        display: flex;
+        justify-content: center;
+        margin-top: 65px;
+    }
+
+    .board {
+        float: left;
+        margin-bottom: 20px;
+        margin-top: -25px;
+    }
+
+    .title {
+        font-size: 80px;
+        line-height: 60px;
+        text-align: center;
+        color: #111;
+    }
+    
+    .title {
+        display: none;
+        
+    }
+
+    .info::before {
+        content: "Let's Play Chess!";
+        display: block;
+        font-family: 'Allura', cursive;
+        font-size: 95px;
+        line-height: 80px;
+        text-align: center;
+        color: #111;
+        padding: 10px 0 10px 0;
+    }
+
+    .info {
+        font-family: 'Playfair Display', serif;
+        font-size: 20px;
+        font-weight: 600;
+        text-align: center;
+    }
+
+}
+
+@media screen and (max-width: 1349px) {
+
+    .intro {
+        float: left;
+        display: flex;
+        justify-content: center;
+        margin-top: 65px;
+    }
+
+}
+
+@media screen and (max-width: 749px) { 
+
+    .wrapper {
+        width: 100%;
+
+    }
+
+    .board {
+        width: 100%;
+        height: 100vw;
+    }
+
+}
+
+@media screen and (max-width: 629px) {
+
+    .banner {
+        display: inline-flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+}
+
+@media screen and (max-width: 409px) {
+
+    .nav-bar {
+        display: none;
+    }
+
+}
+
+@media screen and (max-width: 199px) {
+    
+    .info::before {
+        display: none;
+    }
+
+    .info {
+        display: none;
+    }
+
+    .wrapper {
+        width: 100%;
+        justify-content: center;
+        align-items: flex-start;
+    }
+}
+
+@media screen and (max-width: 169px) {
+
+    .banner-wrapper {
+        display: none;
+    }
+
+}
