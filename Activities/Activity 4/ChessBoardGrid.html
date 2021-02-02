@@ -1,0 +1,187 @@
+<!-- ******************************************
+*  Created On : 2020/01/27
+******************************************* -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="rlapolonio">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./assets/styles.css">
+        <title>Chessboard Grid</title>
+    </head>
+    <body>
+        <section class="wrapper">          
+            <!-- banner -->
+            <div class="banner-wrapper">
+                <nav class="banner">
+                    <div class="title-block">
+                        <h1 class="brand"><a href="https://rlapolonio.github.io/batch6-activities/">rlapolonio</a></h1>
+                        <div class="divider"></div>
+                        <h1 class="activity-title">Chessboard Grid</h1>
+                    </div>
+                    <nav class="nav-bar">
+                        <ul class="nav-links">
+                            <li class="link"><a href="../Activity 3/ChessBoard.html">Previous Work</a></li>
+                            <li class="link"><a href="https://rlapolonio.github.io/batch6-activities/">Portfolio</a></li>
+                            <li class="link"><a href="#">Contact Me</a></li>
+                        </ul>
+                    </nav>
+                </nav>
+            </div>
+
+            <!-- CONTENT GRID -->
+            <section class="content-grid">
+
+                <!-- CHESS LOGO -->
+                <section class="chess-logo"></section>
+
+                <!-- CHESS BOARD -->
+                <section class="board">
+                    <!-- top grid -->
+                    <div class="top-grid-letter">
+                        <ul class="grid-letter">
+                            <li>A</li>
+                            <li>B</li>
+                            <li>C</li>
+                            <li>D</li>
+                            <li>E</li>
+                            <li>F</li>
+                            <li>G</li>
+                            <li>H</li>
+                        </ul>
+                    </div>
+                    <!-- left grid -->
+                    <div class="left-grid-number">
+                        <ul class="grid-number">
+                            <li>8</li>
+                            <li>7</li>
+                            <li>6</li>
+                            <li>5</li>
+                            <li>4</li>
+                            <li>3</li>
+                            <li>2</li>
+                            <li>1</li>
+                        </ul>
+                    </div>
+                    <section class="container">
+                        <!-- 1st row -->
+                        <div class="tile tile-white col-a row-8" id="A8"><img src="./assets/rook-black.svg" alt="rook-black" class="black piece" id="rook-blk1"></div>
+                        <div class="tile tile-black col-b row-8" id="B8"><img src="./assets/knight-black.svg" alt="knight-black" class="black piece" id="knight-blk1"></div>
+                        <div class="tile tile-white col-c row-8" id="C8"><img src="./assets/bishop-black.svg" alt="bishop-black" class="black piece" id="bishop-blk1"></div>
+                        <div class="tile tile-black col-d row-8" id="D8"><img src="./assets/queen-black.svg" alt="queen-black" class="black piece" id="queen-blk"></div>
+                        <div class="tile tile-white col-e row-8" id="E8"><img src="./assets/king-black.svg" alt="king-black" class="black piece" id="king-blk"></div>
+                        <div class="tile tile-black col-f row-8" id="F8"><img src="./assets/bishop-black.svg" alt="bishop-black" class="black piece" id="bishop-blk2"></div>
+                        <div class="tile tile-white col-g row-8" id="G8"><img src="./assets/knight-black.svg" alt="knight-black" class="black piece" id="knight-blk2"></div>
+                        <div class="tile tile-black col-h row-8" id="H8"><img src="./assets/rook-black.svg" alt="rook-black" class="black piece" id="rook-blk2"></div>
+                        <!-- 2nd row -->
+                        <div class="tile tile-black col-a row-7" id="A7"><img src="./assets/pawn-black.svg" alt="pawn-black" class="black piece" id="pawn-blk1"></div>
+                        <div class="tile tile-white col-b row-7" id="B7"><img src="./assets/pawn-black.svg" alt="pawn-black" class="black piece" id="pawn-blk2"></div>
+                        <div class="tile tile-black col-c row-7" id="C7"><img src="./assets/pawn-black.svg" alt="pawn-black" class="black piece" id="pawn-blk3"></div>
+                        <div class="tile tile-white col-d row-7" id="D7"><img src="./assets/pawn-black.svg" alt="pawn-black" class="black piece" id="pawn-blk4"></div>
+                        <div class="tile tile-black col-e row-7" id="E7"><img src="./assets/pawn-black.svg" alt="pawn-black" class="black piece" id="pawn-blk5"></div>
+                        <div class="tile tile-white col-f row-7" id="F7"><img src="./assets/pawn-black.svg" alt="pawn-black" class="black piece" id="pawn-blk6"></div>
+                        <div class="tile tile-black col-g row-7" id="G7"><img src="./assets/pawn-black.svg" alt="pawn-black" class="black piece" id="pawn-blk7"></div>
+                        <div class="tile tile-white col-h row-7" id="H7"><img src="./assets/pawn-black.svg" alt="pawn-black" class="black piece" id="pawn-blk8"></div>
+                        <!-- 3rd row -->
+                        <div class="tile tile-white col-a row-6" id="test"></div>
+                        <div class="tile tile-black col-b row-6" id="B6"></div>
+                        <div class="tile tile-white col-c row-6" id="C6"></div>
+                        <div class="tile tile-black col-d row-6" id="D6"></div>
+                        <div class="tile tile-white col-e row-6" id="E6"></div>
+                        <div class="tile tile-black col-f row-6" id="F6"></div>
+                        <div class="tile tile-white col-g row-6" id="G6"></div>
+                        <div class="tile tile-black col-h row-6" id="H6"></div>
+                        <!-- 4th row -->
+                        <div class="tile tile-black col-a row-5" id="A5"></div>
+                        <div class="tile tile-white col-b row-5" id="B5"></div>
+                        <div class="tile tile-black col-c row-5" id="C5"></div>
+                        <div class="tile tile-white col-d row-5" id="D5"></div>
+                        <div class="tile tile-black col-e row-5" id="E5"></div>
+                        <div class="tile tile-white col-f row-5" id="F5"></div>
+                        <div class="tile tile-black col-g row-5" id="G5"></div>
+                        <div class="tile tile-white col-h row-5" id="H5"></div>
+                        <!-- 5th row -->
+                        <div class="tile tile-white col-a row-4" id="A4"></div>
+                        <div class="tile tile-black col-b row-4" id="B4"></div>
+                        <div class="tile tile-white col-c row-4" id="C4"></div>
+                        <div class="tile tile-black col-d row-4" id="D4"></div>
+                        <div class="tile tile-white col-e row-4" id="E4"></div>
+                        <div class="tile tile-black col-f row-4" id="F4"></div>
+                        <div class="tile tile-white col-g row-4" id="G4"></div>
+                        <div class="tile tile-black col-h row-4" id="H4"></div>
+                        <!-- 6th row -->
+                        <div class="tile tile-black col-a row-3" id="A3"></div>
+                        <div class="tile tile-white col-b row-3" id="B3"></div>
+                        <div class="tile tile-black col-c row-3" id="C3"></div>
+                        <div class="tile tile-white col-d row-3" id="D3"></div>
+                        <div class="tile tile-black col-e row-3" id="E3"></div>
+                        <div class="tile tile-white col-f row-3" id="F3"></div>
+                        <div class="tile tile-black col-g row-3" id="G3"></div>
+                        <div class="tile tile-white col-h row-3" id="H3"></div>
+                        <!-- 7th row -->
+                        <div class="tile tile-white col-a row-2" id="A2"><img src="./assets/pawn-white.svg" alt="pawn-white" class="white piece" id="pawn-wht1"></div>
+                        <div class="tile tile-black col-b row-2" id="B2"><img src="./assets/pawn-white.svg" alt="pawn-white" class="white piece" id="pawn-wht2"></div>
+                        <div class="tile tile-white col-c row-2" id="C2"><img src="./assets/pawn-white.svg" alt="pawn-white" class="white piece" id="pawn-wht3"></div>
+                        <div class="tile tile-black col-d row-2" id="D2"><img src="./assets/pawn-white.svg" alt="pawn-white" class="white piece" id="pawn-wht4"></div>
+                        <div class="tile tile-white col-e row-2" id="E2"><img src="./assets/pawn-white.svg" alt="pawn-white" class="white piece" id="pawn-wht5"></div>
+                        <div class="tile tile-black col-f row-2" id="F2"><img src="./assets/pawn-white.svg" alt="pawn-white" class="white piece" id="pawn-wht6"></div>
+                        <div class="tile tile-white col-g row-2" id="G2"><img src="./assets/pawn-white.svg" alt="pawn-white" class="white piece" id="pawn-wht7"></div>
+                        <div class="tile tile-black col-h row-2" id="H2"><img src="./assets/pawn-white.svg" alt="pawn-white" class="white piece" id="pawn-wht8"></div>
+                        <!-- 8th row -->
+                        <div class="tile tile-black col-a row-1" id="A1"><img src="./assets/rook-white.svg" alt="rook-white" class="white piece" id="rook-wht1"></div>
+                        <div class="tile tile-white col-b row-1" id="B1"><img src="./assets/knight-white.svg" alt="knight-white" class="white piece" id="knight-wht1"></div>
+                        <div class="tile tile-black col-c row-1" id="C1"><img src="./assets/bishop-white.svg" alt="bishop-white" class="white piece" id="bishop-wht1"></div>
+                        <div class="tile tile-white col-d row-1" id="D1"><img src="./assets/queen-white.svg" alt="queen-white" class="white piece" id="queen-wht"></div>
+                        <div class="tile tile-black col-e row-1" id="E1"><img src="./assets/king-white.svg" alt="king-white" class="white piece" id="king-wht"></div>
+                        <div class="tile tile-white col-f row-1" id="F1"><img src="./assets/bishop-white.svg" alt="bishop-white" class="white piece" id="bishop-wht2"></div>
+                        <div class="tile tile-black col-g row-1" id="G1"><img src="./assets/knight-white.svg" alt="knight-white" class="white piece" id="knight-wht2"></div>
+                        <div class="tile tile-white col-h row-1" id="H1"><img src="./assets/rook-white.svg" alt="rook-white" class="white piece" id="rook-wht2"></div>       
+                    </section>
+                </section>
+                <div class="trivia-box">
+                    <div class="trivia trivia1">
+                        <h3 class="heading1">Did you know?</h3>
+                        <p class="info1">The number of possibilities of a Knight's tour is over 122 million.</p>
+                    </div>
+                    <div class="trivia trivia2">
+                        <h3 class="link-trivia"><a href="https://en.wikipedia.org/wiki/History_of_chess">History of Chess</a></h3>
+                    </div>
+                    <div class="trivia trivia3">
+                        <h3 class="link-trivia"><a href="https://www.funtrivia.com/en/Hobbies/Chess-5456.html">Q & A</a></h3>
+                    </div>
+                    <div class="trivia trivia4">
+                        <h3 class="link-trivia"><a href="https://www.youtube.com/watch?v=NAIQyoPcjNM">How to Play</a></h3>
+                    </div>
+                    <div class="trivia trivia5">
+                        <h3 class="link-trivia"><a href="https://cardgames.io/chess/">Play Online!</a></h3>
+                    </div>
+                    <div class="trivia trivia6">
+                        <h3 class="heading1">Did you know?</h3>
+                        <p class="info1">The longest official game lasted 269 moves and ended in a draw.</p>
+                    </div>
+                    <div class="trivia trivia7">
+                        <h3 class="heading1">Did you know?</h3>
+                        <p class="info1">Russia has the most chess grandmasters.</p>
+                    </div>
+                    <div class="trivia trivia8">
+                        <h3 class="link-trivia"><a href="https://en.wikipedia.org/wiki/List_of_chess_grandmasters">Grand Masters</a></h3>
+                    </div>
+                    <div class="trivia trivia9">
+                        <h3 class="link-trivia"><a href="https://www.triviaquestionquiz.com/chess-trivia/">More Trivia</a></h3>
+                    </div>
+                </div>
+                <div class="taken-white"></div>
+                <div class="taken-black"></div>
+                <div class="buttons">
+                    <button class="gen-logo" onclick="generateLogo()">Logo!</button>
+                    <button class="reset" onclick="location.reload()">RESET</button>
+                    <button class="gen-trivia" onclick="showTrivia()">Trivia!</button>
+                </div>
+            </section>
+        </section> 
+        <script src="./assets/scripts.js"></script>
+        
+    </body>
+</html>

@@ -1,0 +1,523 @@
+/******************************************
+*  Created On : 2020/01/27
+*******************************************/
+@import url('https://fonts.googleapis.com/css2?family=Allura&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Advent+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    background-color: rgba(248, 231, 187, .6);
+    width: 100%;
+    height: 100vh;
+}
+
+.banner-wrapper {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 75px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+}
+
+.banner {
+    width: 1450px;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #eeeeee;
+}
+
+.title-block {
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 500px;
+}
+
+.brand {
+    font-family: 'Advent Pro', sans-serif;
+    font-size: 30px;
+    letter-spacing: 5px;
+}
+
+.brand a {
+    text-decoration: none;
+    color: #eeeeee;
+}
+
+.divider {
+    width: 3px;
+    background-color: #eeeeee;
+    height: 50px;
+    border-radius: 1px;
+}
+
+.activity-title {
+    font-family: 'Allura', cursive;
+    font-size: 45px;
+}
+
+.nav-links {
+    display: inline-flex;
+    justify-content: space-between;
+    font-family: 'Advent Pro', sans-serif;
+    text-transform: uppercase;
+    width: 400px;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.nav-links li {
+    list-style: none;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s ease 0s;
+}
+
+.nav-links li a:hover {
+    color:#f2ca5c;
+}
+
+/* CHESS BOARD */
+
+.board {
+    grid-area: board;
+    width: 750px;
+    height: 750px;
+    background-color: #717171;
+    display: grid;
+    grid-template-columns: 4fr 92fr 4fr;
+    grid-template-rows: 4fr 92fr 4fr;
+    grid-template-areas: 
+    ". letter-grid ."
+    "number-grid chessboard ."
+    ". . .";
+}
+
+.top-grid-letter {
+    grid-area: letter-grid;
+    display: grid;
+    align-items: center;
+}
+
+.grid-letter {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: 1fr;
+    place-items: center;
+}
+
+.left-grid-number {
+    grid-area: number-grid;
+}
+
+.grid-number {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(8, 1fr);
+    height: 100%;
+    place-items: center;
+}
+
+ul.grid-letter li, ul.grid-number li {
+    list-style: none;
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    color: #A4A4A4;
+}
+
+.container {
+    grid-area: chessboard;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    height: 100%;
+    border: solid 2px #111;
+    background-color: #111;
+    gap: 2px;
+}
+
+.tile {
+    display: grid;
+    place-items: center;
+}
+
+.tile-black {
+    background-color: #717171;
+    color: white;
+}
+
+.tile-white {
+    background-color: #A4A4A4;
+    color: black;
+}
+
+.piece {
+    width: 85%;
+    height: auto;
+    transition: all 0.3s ease 0s;
+}
+
+.piece:hover {
+    transform: scale(1.2);
+}
+
+.active-piece {
+    transform: scale(1.2);
+    box-shadow: 0 0 12px white;
+}
+
+/* GUI */
+
+.content-grid {
+    /*background-color: rosybrown;*/
+    position: relative;
+    width: fit-content;
+    margin: 20px 0px 20px 350px;
+    display: grid;
+    grid-template-columns: auto 70px 750px 70px auto;
+    grid-template-rows: 750px 60px;
+    grid-template-areas:
+    "logo left board right trivia"
+    ". . reset . .";
+    place-items: center;
+    column-gap: 10px;
+    transition: all 3s ease 0s;
+}
+
+.taken-white {
+    grid-area: left;
+    align-self: end;
+    display: grid;
+    grid-template-columns: 70px;
+    place-items: center;
+}
+
+.taken-black {
+    grid-area: right;
+    align-self: start;
+    display: grid;
+    grid-template-columns: 70px;
+    place-items: center;
+}
+
+.taken-black img, .taken-white img {
+    width: 60%;
+    height: auto;
+}
+
+.buttons {
+    grid-area: reset;
+}
+
+button.reset, button.gen-logo, button.gen-trivia {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 25px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    height: 45px;
+    width: 200px;
+    background-color: #717171;
+    color: #efefef;
+    transition: all 0.3s ease 0s;
+    border: none;
+    margin: 0 20px;
+}
+
+button.gen-logo, button.gen-trivia  {
+    height: 30px;
+    width: 90px;
+    font-size: 18px;
+}
+
+button.reset:hover, button.gen-logo:hover, button.gen-trivia:hover {
+    background-color: goldenrod;
+    color: #111;
+    border: 2px solid #111;
+}
+
+/* PATTERN */
+
+.chess-logo {
+    grid-area: logo;
+    display: grid;
+    /* background-color: aquamarine; */
+    grid-template-columns: repeat(6, 20px);
+    grid-template-rows: repeat(31, 20px);
+    gap: 3px;
+    transition: all 0.3s ease 0s;
+}
+
+.chess-logo:hover {
+    transform: scale(1.05);
+}
+
+.stitch {
+    background-color: #111;
+    animation-name: shine;
+    animation-duration: 8s;
+    animation-delay: 4s;
+    animation-iteration-count: infinite;
+}
+
+/* TRIVIA PANE */
+
+.trivia-box {
+    grid-area: trivia;
+    display: grid;
+    grid-template-columns: repeat(3, 115px);
+    grid-template-rows: repeat(6, 115px);
+    place-items: stretch;
+    /* background-color: darkseagreen; */
+    grid-template-areas: 
+    "trivia1 trivia1 trivia2"
+    "trivia1 trivia1 trivia3"
+    "trivia4 trivia6 trivia6"
+    "trivia5 trivia6 trivia6"
+    "trivia7 trivia7 trivia8"
+    "trivia7 trivia7 trivia9";
+    gap: 8px;
+    opacity: 0;
+}
+
+.heading1 {
+    font-size: 25px;
+}
+
+.info1 {
+    font-size: 22px;
+    margin-top: 10px;
+}
+
+.link-trivia {
+    font-size: 23px;
+}
+
+.link-trivia a {
+    text-decoration: none;
+}
+
+.trivia1:hover, .trivia6:hover, .trivia7:hover {
+    background-color:#111;
+    color: goldenrod;
+}
+
+.trivia2 .link-trivia a, .trivia4 .link-trivia a, .trivia9 .link-trivia a {
+    color: #111;
+}
+
+.trivia2:hover, .trivia4:hover, .trivia9:hover {
+    background-color:goldenrod;
+    border: 2px solid #111;
+}
+
+.trivia3 .link-trivia a, .trivia5 .link-trivia a, .trivia8 .link-trivia a {
+    color: #efefef;
+}
+
+.trivia3 .link-trivia a:hover, .trivia5 .link-trivia a:hover, .trivia8 .link-trivia a:hover {
+    color: #111;
+}
+
+.trivia3:hover, .trivia5:hover, .trivia8:hover {
+    background-color:goldenrod;
+    border: 2px solid #111;
+}
+
+.trivia {
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    padding: 10px;
+    transition: all 0.3s ease 0s;
+}
+
+.trivia2, .trivia3, .trivia4, .trivia5, .trivia8, .trivia9 {
+    display: grid;
+    place-items: center;
+    text-align: center;
+}
+
+.trivia1 {
+    grid-area: trivia1;
+    background-color: #717171;
+}
+
+.trivia2 {
+    grid-area: trivia2;
+    background-color: #A4A4A4;
+}
+
+.trivia3 {
+    grid-area: trivia3;
+    background-color: #111;
+}
+
+.trivia4 {
+    grid-area: trivia4;
+    background-color: #A4A4A4;
+}
+
+.trivia5 {
+    grid-area: trivia5;
+    background-color: #111;
+}
+
+.trivia6 {
+    grid-area: trivia6;
+    background-color: #717171;
+}
+
+.trivia7 {
+    grid-area: trivia7;
+    background-color: #717171;
+}
+
+.trivia8 {
+    grid-area: trivia8;
+    background-color: #111;
+}
+
+.trivia9 {
+    grid-area: trivia9;
+    background-color: #A4A4A4;
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 1449px) {
+
+    .banner {
+        padding: 0 20px;
+    }
+}
+
+@media screen and (max-width: 1009px) {
+
+    .content-grid {
+        grid-template-columns: 750px;
+        grid-template-rows: 750px 60px 1fr 1fr;
+        grid-template-areas:
+        "board"
+        "reset"
+        "left"
+        "right";
+        row-gap: 5px;
+        height: fit-content;
+    }
+    
+    .taken-white {
+        width: 750px;
+        grid-template-columns: repeat(16, 1fr);
+    }
+    
+    .taken-black {
+        width: 750px;
+        grid-template-columns: repeat(16, 1fr);
+    }
+
+}
+
+@media screen and (max-width: 949px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    .banner {
+        display: grid;
+        place-content: center;
+    }
+
+}
+
+@media screen and (max-width: 749px) {
+
+    .board {
+        width: 100vw;
+        height: 100vw;
+    }
+
+    .banner {
+        width: 100%;;
+    }
+
+    button.reset {
+        height: 6vw;
+        width: 27vw;
+        font-size: 3vw;
+    }
+
+    .content-grid {
+        width: 100vw;
+        grid-template-columns: 100vw;
+        grid-template-rows: 100vw 8vw 1fr 1fr;
+    }
+
+    .taken-white {
+        width: 100vw;
+    }
+    
+    .taken-black {
+        width: 100vw;
+    }
+
+    ul.grid-letter li, ul.grid-number li {
+        font-size: 2vw;
+    }
+
+}
+
+@media screen and (max-width: 499px) {
+
+    .title-block {
+        width: 100%;
+    }
+
+    .brand, .divider {
+        display: none;
+    }
+
+    .activity-title {
+         font-size: 10vw;
+    }
+
+    .banner-wrapper {
+        height: 15vw;
+    }
+
+    .content-grid {
+        grid-template-rows: 100vw 8vw;
+    }
+
+    .taken-white {
+        display: none;
+    }
+    
+    .taken-black {
+        display: none;
+    }
+}
+
+/* animations */
+
+@keyframes shine {
+    0% {background-color: #111;}
+    5% {background-color: goldenrod;}
+    10% {background-color: #111;}
+    100% {background-color: #111;}
+}
