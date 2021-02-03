@@ -114,6 +114,7 @@
     ". letter-grid ."
     "number-grid chessboard ."
     ". . .";
+    cursor:grab;
 }
 
 .top-grid-letter {
@@ -203,7 +204,6 @@ ul.grid-letter li, ul.grid-number li {
     "logo logo2 left board right trivia"
     ". . . reset . .";
     place-items: center;
-    cursor:grab;
 }
 
 .taken-white {
