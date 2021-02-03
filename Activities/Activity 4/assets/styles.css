@@ -67,6 +67,13 @@
 .activity-title {
     font-family: 'Allura', cursive;
     font-size: 45px;
+    transition: all 0.3s ease 0s;
+    cursor:crosshair;
+}
+
+.activity-title:hover {
+    color: goldenrod;
+    cursor: crosshair;
 }
 
 .nav-links {
@@ -188,16 +195,15 @@ ul.grid-letter li, ul.grid-number li {
     /*background-color: rosybrown;*/
     position: relative;
     width: fit-content;
-    margin: 20px 0px 20px 350px;
+    margin: 20px auto;
     display: grid;
-    grid-template-columns: auto 70px 750px 70px auto;
+    grid-template-columns: auto auto 70px 750px 70px 361px;
     grid-template-rows: 750px 60px;
     grid-template-areas:
-    "logo left board right trivia"
-    ". . reset . .";
+    "logo logo2 left board right trivia"
+    ". . . reset . .";
     place-items: center;
-    column-gap: 10px;
-    transition: all 3s ease 0s;
+    cursor:grab;
 }
 
 .taken-white {
@@ -253,17 +259,24 @@ button.reset:hover, button.gen-logo:hover, button.gen-trivia:hover {
 
 /* PATTERN */
 
-.chess-logo {
-    grid-area: logo;
+.chess-logo, .chess-logo2 {
     display: grid;
-    /* background-color: aquamarine; */
+    width: 180px;
+    /*background-color: aquamarine;*/
     grid-template-columns: repeat(6, 20px);
     grid-template-rows: repeat(31, 20px);
     gap: 3px;
     transition: all 0.3s ease 0s;
 }
 
-.chess-logo:hover {
+.chess-logo {
+    grid-area: logo;
+}
+.chess-logo2 {
+    grid-area: logo2;
+}
+
+.chess-logo:hover, .chess-logo2:hover {
     transform: scale(1.05);
 }
 
@@ -293,6 +306,7 @@ button.reset:hover, button.gen-logo:hover, button.gen-trivia:hover {
     "trivia7 trivia7 trivia9";
     gap: 8px;
     opacity: 0;
+    cursor:help;
 }
 
 .heading1 {
@@ -301,7 +315,7 @@ button.reset:hover, button.gen-logo:hover, button.gen-trivia:hover {
 
 .info1 {
     font-size: 22px;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
 .link-trivia {
@@ -311,6 +325,12 @@ button.reset:hover, button.gen-logo:hover, button.gen-trivia:hover {
 .link-trivia a {
     text-decoration: none;
 }
+
+.trivia1, .trivia6, .trivia7 {
+    display: grid;
+    align-content: center;
+}
+
 
 .trivia1:hover, .trivia6:hover, .trivia7:hover {
     background-color:#111;
@@ -399,11 +419,29 @@ button.reset:hover, button.gen-logo:hover, button.gen-trivia:hover {
 
 /* MEDIA QUERIES */
 
+@media screen and (max-width: 1609px) {
+
+    .content-grid {
+        margin: 20px auto;
+        display: grid;
+        grid-template-columns: 70px 750px 70px;
+        grid-template-areas:
+        "left board right"
+        ". reset .";
+    }
+
+    .chess-logo, .chess-logo2, .trivia-box, .gen-logo, .gen-trivia {
+        display: none;
+    }
+
+}
+
 @media screen and (max-width: 1449px) {
 
     .banner {
         padding: 0 20px;
     }
+
 }
 
 @media screen and (max-width: 1009px) {

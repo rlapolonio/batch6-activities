@@ -71,11 +71,14 @@ function clearSelection() {
 function generateLogo() {
 
     const stitchBoard = document.querySelector('.chess-logo');
+    const stitchBoard2 = document.querySelector('.chess-logo2');
 
     removeAllStitch(stitchBoard);
+    removeAllStitch(stitchBoard2);
 
     for (i = 0; i < 186; i++) {
-        generateLogoTask(i);     
+        generateLogoTask(i);
+        generateLogoTask2(i);     
     }
 
     function generateLogoTask(i) {
@@ -109,6 +112,38 @@ function generateLogo() {
         }, 8 * i);                
     }
 
+    function generateLogoTask2(i) {
+        setTimeout(function() {
+            var stitch = document.createElement('div');
+            if (i == 7 || i == 8 || i == 9 || i == 13 || i == 14 || i == 16 || i == 19 || i == 20 || i == 21 || i == 25 ||
+                i == 26 || i == 28 || i == 31 || i == 32 || i == 32 || i == 33 || i == 43 || i == 44 || i == 45 || i == 46 || i == 49 ||
+                i == 50 || i == 52 || i == 55 || i == 56 || i == 58 || i == 61 || i == 62 || i == 64 || i == 67 || i == 68 ||
+                i == 69 || i == 70 || i == 79 || i == 80 || i == 81 || i == 82 || i == 85 || i == 87 || i == 88 || i == 91 ||
+                i == 93 || i == 94 || i == 97 || i == 98 || i == 99 || i == 100 || i == 103 || i == 105 || i == 106 || i == 115 ||
+                i == 116 || i == 117 || i == 118 || i == 121 || i == 122 || i == 124 || i == 127 || i == 128 || i == 130 ||
+                i == 133 || i == 134 || i == 135 || i == 139 || i == 140 || i == 142 || i == 151 || i == 152 || i == 153 ||
+                i == 157 || i == 158 || i == 160 || i == 163 || i == 164 || i == 166 || i == 169 || i == 170 || i == 172 ||
+                i == 175 || i == 176 || i == 177) {
+                stitch.className = 'stitch';
+            }
+
+            // fade in effect
+            stitch.style.opacity = 0;
+            stitchBoard2.appendChild(stitch);
+            
+            for (k = 1; k <= 10; k++) {
+                opacityTask(k);
+            }
+
+            function opacityTask(k) {
+                setTimeout(function() {
+                    stitch.style.opacity = k/10;
+                }, 50 * k);
+            }
+
+        }, 8 * i);                
+    }
+
     function removeAllStitch(parent) {
         while (parent.firstChild) {
             parent.removeChild(parent.firstChild);
@@ -120,7 +155,7 @@ function generateLogo() {
 function showTrivia() {
 
     const triviaPane = document.querySelector('.trivia-box');
-    
+
     if (triviaPane.style.opacity == 0) {
         for (k = 1; k <= 100; k++) {
             opacityTrivia(k);
