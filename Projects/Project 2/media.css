@@ -1,0 +1,474 @@
+@media screen and (min-width: 320px) and (max-width: 640px) {
+
+    body {
+        margin-bottom: 380px;
+    }
+
+    /* NAV BAR */
+    .header {
+        height: 50px;
+    }
+
+    .wrapper {
+        width: 300px;
+        flex-wrap: wrap;
+    }
+
+    #header-img {
+        max-width: 250px;
+        margin-left: -30px;
+    }
+
+    #hamburger {
+        display: block;
+        background-color: transparent;
+        border: none;
+        font-size: 25px;
+        cursor: pointer;
+        margin-right: -8px;
+    }
+
+    #burger-menu.show {
+        display: block;
+        position: absolute;
+        top: 50px;
+        right: 0;
+        background-color: #fff;
+        width: 150px;
+        
+    }
+
+    #burger-menu.show .nav-links {
+        display: block;
+        font-size: 16px;
+    }
+
+    #burger-menu.show .nav-link {
+        margin-top: 5px;
+    }
+
+    #burger-menu.show .nav-link .button a {
+        font-weight: 400;
+        color: #ffffff;
+    }
+
+    #hamburger:focus {
+        outline: none;
+    }
+    
+    .nav-bar {
+        display: none;
+    }
+
+    .scrolling-activeQ #header-img {
+        transform: scale(1);
+        margin-left: -30px;
+    }
+
+
+    /* FEATURED */
+    #featured {
+        height: 1000px;
+        background-position: -150px 0px;
+    }
+
+    .wrapper-1 {
+        width: 300px;
+        flex-direction: column;
+        margin-top: 10px;
+        padding-top: 0px;
+        justify-content: unset;
+    }
+
+    .main-header {
+        width: 300px;
+        height: 60vh;
+        margin-top: 100px;
+    }
+
+    .main-header h3 {
+        font-size: 25px;
+        line-height: 28px;
+        padding-left: 2px;
+    }
+
+    .main-header h1 {
+        font-size: 60px;
+        font-weight: 600;
+        line-height: 65px;
+        letter-spacing: 0px;
+        margin-left: 0px;
+    }
+
+    .main-header p {
+        font-size: 20px;
+        font-weight: 300;
+        line-height: 22px;
+        margin-top: 5px;
+    }
+
+    .cta-button {
+        width: 210px;
+        height: 65px;
+        background-color: #EF4136;
+        margin-top: 30px;
+    }
+
+    .cta-button a {
+        text-decoration: none;
+        color: #FFFFFF;
+        font-size: 25px;
+        font-weight: 500;
+        transition: all 0.3s ease 0s;
+        margin-top: 0px;
+    }
+
+    .featured-item {
+        width: 300px;
+        margin-top: 50px;
+    }
+
+    .featured-tag {
+        width: 70px;
+        height: 21px;
+        font-weight: 400;
+        font-size: 11px;
+        top: -21px;
+    }
+
+    .img-container {
+        width: 300px;
+    }
+
+    .img-container img {
+        width: 300px;
+    }
+
+    .featured-item h4 {
+        font-size: 20px;
+        line-height: 25px;
+    }
+    
+    .featured-item p {
+        font-size: 16px;
+        line-height: 30px;
+    }
+
+    #featured::after {
+        height: 157px;
+        bottom: -1px;
+        background-color: #FEF9F9;
+        clip-path: polygon(100% 85%, 0% 100%, 100% 100%);
+    } 
+
+    /* ABOUT US*/
+    .wrapper-2 {
+        width: 300px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-items: center;
+        justify-content: center;
+        align-content: flex-start;
+        margin-top: 30px;
+    }
+
+    .wrapper-2 .about {
+        width: 300px;
+        height: 250px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    .wrapper-2 .about img {
+        width: 75px;
+    }
+
+    .wrapper-2 .about h2 {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 25px;
+    }
+
+    .wrapper-2 .about p {
+        width: 150px;
+        font-size: 13px;
+        line-height: 15px;
+        margin-top: 10px;
+    }
+
+    .wrapper-2 .about:nth-child(3) {
+        margin-top: -20px;
+    }
+
+    /* PRODUCTS */
+
+    #products {
+        height: 2850px;
+    }
+
+    #products::after {
+        clip-path: polygon(100% 0, 0 0, 100% 20%);
+        z-index: 10;
+    }
+    
+    .wrapper-3 {
+        max-width: 300px;
+        margin-top: 60px;
+    }
+
+    .wrapper-3 h1 {
+        font-family: Oswald;
+        font-weight: 600;
+        font-size: 45px;
+        letter-spacing: -0.02em;
+        line-height: 1em;
+        text-align: center;
+        color: #fff;
+    }
+
+    .product-container {
+        max-width: 300px;
+        grid-template-columns: auto;
+        gap: 5px;
+        margin-top: 20px;
+    }
+
+    .product-group-1, .product-sub-1, .product-sub-2, .product-group-2 {
+        grid-template-columns: auto;
+        gap: 5px;
+    }
+
+    .product-group-1, .product-group-2 {
+        place-items: center;
+    }
+
+    .q-tag {
+        display: none;
+    }
+
+    .product-group-2 {
+        width: 300px;
+    }
+
+    .product {
+        width: 150px;
+        z-index: 1;
+    }
+
+    .item-1:hover, .item-2:hover,
+    .item-3:hover, .item-4:hover,
+    .item-5:hover, .item-6:hover,
+    .item-7:hover, .item-8:hover {
+        border-bottom: 5px solid #ef4136;
+    }
+
+
+    .product.item-1 {
+        width: 300px;
+        height: 200px;
+    }
+
+    .product.item-3 {
+        width: 300px;
+        height: 455px;
+    }
+
+    .product.item-4 {
+        width: 300px;
+        height: 372px;
+    }
+
+    .product.item-6 {
+        width: 300px;
+        height: 198px;
+    }
+
+    .product.item-7 {
+        width: 300px;
+        height: 200px;
+    }
+
+    .product.item-2 {
+        width: 300px;
+        height: 450px;
+    }
+
+    .product.item-5 {
+        width: 300px;
+        height: 400px;
+    }
+
+    .product.item-8 {
+        width: 300px;
+        height: 300px;
+    }
+
+    .rax-tile {
+        display: none;
+    }
+
+    .info {
+        display: none;
+    }
+
+    .slide-bar {
+        width: 20px;
+        height: 7px;
+        background: #ffffff;
+        margin: 5px;
+        cursor: pointer;
+    }
+
+    /* VIDEO*/
+
+    #video-section {
+        height: 450px;
+    }
+
+    #video {
+        width: 300px;
+        height: 169px;
+    }
+
+    .wrapper-4 {
+        width: 300px;
+        margin: 0 auto;
+    }
+
+    .wrapper-4 h3 {
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 25px;
+    }
+
+    .wrapper-4 h1 {
+        font-weight: 500;
+        font-size: 30px;
+        letter-spacing: -0.02em;
+        line-height: 35px;
+    }
+
+    .wrapper-4 iframe {
+        margin-top: 10px;
+        border: 2px solid #ef4136;
+    
+    }
+
+    /* FOOTER */
+    .footer {
+        height: 380px;
+    }
+
+    .wrapper-5 {
+        width: 300px;
+    }
+
+    .footer-top {
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-template-rows: auto auto;
+        grid-template-areas:
+        "form"
+        "logo";
+        gap: 50px;
+    }
+
+    .footer-logo {
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-template-rows: 50px auto;
+        place-items: center;
+        justify-content: center;
+        grid-template-areas: 
+        "rax1 rax2"
+        "rla rla";
+        gap: 20px;
+    }
+
+    .footer-notes {
+        margin-top: 50px;
+    }
+
+    .footer-notes p {
+        font-weight: 400;
+        font-size: 10px;
+        line-height: 12px;
+    }
+
+    .divider-short {
+        display: none;
+    }
+
+    .form-box {
+        width: 300px;
+        margin-top: 15px;
+        grid-area: form;
+    }
+    
+    .form-box h1 {
+        font-weight: 500;
+        font-size: 15px;
+        margin-bottom: 3px;
+    }
+    
+    #form {
+        width: 100%;
+    }
+    
+    #email {
+        width: 70%;
+        height: 25px;
+    }
+
+    #form .button {
+        width: 30%;
+        margin-top: -1px;
+    }
+    
+    input[type=email] {
+        height: 100%;
+        font-size: 15px;
+        padding-left: 0.5em;
+    }
+    
+    input[type=email]::placeholder {
+        font-weight: 400;
+        font-size: 15px;
+    }
+    
+    input[type=submit] {
+        width: 100%;
+        height: 25px;
+        font-weight: 500;
+        font-size: 15px;
+        letter-spacing: 0em;
+    }
+    
+    .form-box p {
+        font-weight: 400;
+        font-size: 11px;
+    }
+
+    .footer-rax-logo1 {
+        width: 100px;
+    }
+    
+    .footer-rax-logo2 {
+        width: 100px;
+    }
+
+    .footer-rla-logo {
+        width: 150px;
+        height: 29.8px;
+        margin-left: 10px;
+    }
+
+    .privacy-links li {
+        font-weight: 400;
+        font-size: 10px;
+        margin: 5px 5px;
+    }
+
+}

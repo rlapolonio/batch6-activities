@@ -1,0 +1,165 @@
+@media screen and (min-width: 320px) and (max-width: 640px) {
+
+    body {
+        margin-bottom: 400px;
+    }
+
+    /* NAV BAR */
+    .header {
+        height: 50px;
+        z-index: 100;
+    }
+
+    #header-img {
+        max-width: 250px;
+        margin-left: -10px;
+    }
+
+    /* FEATURED */
+    .wrapper-1 {
+        max-width: 300px;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        margin-top: 50px;
+        padding-top: 200px;
+    }
+
+    .main-header {
+        max-width: 300px;
+    }
+
+    .main-header h1 {
+        font-size: 3em;
+        font-weight: 700;
+        line-height: 1em;
+        letter-spacing: -3px;
+        margin-left: -5px;
+    }
+
+    .cta-button {
+        width: 210px;
+        height: 70px;
+        background-color: #EF4136;
+        display: grid;
+        place-items: center;
+        margin-top: 20px;
+        transition: all 0.3s ease 0s;
+        transform-origin: left;
+    }
+
+    .featured-item {
+        max-width: 300px;
+    }
+
+    .img-container {
+        max-width: 300px;
+    }
+
+    .img-container img {
+        max-width: 300px;
+    }
+
+    /* ABOUT US*/
+    .wrapper-2 {
+        max-width: 300px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .wrapper-2 .about p {
+        width: 150px;
+        font-size: 25px;
+        line-height: 35px;
+    }
+
+    /* PRODUCTS */
+
+    .wrapper-3 {
+        max-width: 300px;
+    }
+
+    .wrapper-3 h1 {
+        font-family: Oswald;
+        font-weight: 700;
+        font-size: 3em;
+        letter-spacing: -0.02em;
+        line-height: 1em;
+        text-align: center;
+        color: #fff;
+    }
+
+    .product-container {
+        max-width: 300px;
+    }
+
+    .product-group-1, .product-sub-1, .product-sub-2 {
+        display: block;
+    }
+
+    .product {
+        max-width: 150px;
+    }
+
+    .info {
+        max-width: 150px;
+        position: relative;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+
+
+    /* VIDEO*/
+    #video {
+        width: 300px;
+        height: 169px;
+    }
+
+    .wrapper-4 {
+        max-width: 300px;
+    }
+
+    /* FOOTER */
+    .footer {
+        height: 400px;
+    }
+
+    .wrapper-5 {
+        max-width: 300px;
+    }
+
+    .footer-top {
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-template-rows: auto auto;
+        grid-template-areas:
+        "form"
+        "logo";
+    }
+
+    .footer-logo {
+        display: grid;
+        grid-template-columns: auto auto;
+        place-items: center;
+        grid-template-areas: 
+        "rax1 rax2"
+        "rla rla";
+    }
+
+    .divider-short {
+        display: none;
+    }
+
+    .form-box {
+        max-width: 300px;
+    }
+
+    #email {
+        width: 60%;
+    }
+
+    input[type=submit] {
+        width: 40%;
+    }
+}

@@ -1,0 +1,165 @@
+/******************************************
+*  Created On : 2020/01/27
+*******************************************/
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Oswald', sans-serif;
+}
+/* NAV BAR */
+
+.header {
+    width: 100%;
+    height: 100px;
+    background-color: #fff;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    z-index: 100;
+    box-shadow: 0 5px 5px rgba(112, 112, 112, .3);
+    transition: all 0.3s ease 0s;
+}
+
+.wrapper {
+    width: 1660px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#header-img {
+    max-width: 499px;
+    height: auto;
+}
+
+.nav-links {
+    list-style: none;
+    width: 350px;
+    display: inline-flex;
+    justify-content: space-between;
+    font-size: 20px;
+    align-items: center;
+    position: relative;
+    transition: all 0.5s ease 0s;
+}
+
+.nav-link {
+    text-align: center;
+    width: 150px;
+    
+}
+
+.nav-link:hover a {
+    color: #EF4136;
+}
+
+.nav-link a {
+    text-decoration: none;
+    color: #666;
+    font-weight: 300;
+    transition: all 0.3s ease 0s;
+}
+
+.nav-link .button {
+    width: 150px;
+    height: 43px;
+    background-color: #EF4136;
+    display: grid;
+    place-items: center;
+    line-height: 30px;
+    transition: transform 0.3s;
+}
+
+.nav-link .button a {
+    font-weight: 500;
+    color: #ffffff;
+}
+
+.nav-link .button:hover {
+    transform: scale(1.1);
+}
+
+/* SUCCESS SECTION */
+
+.success {
+    height: calc(100vh - 100px);;
+    width: 100%;
+    background-color: #707070;
+    background-image: url(assets/images/product-2.jpg);
+    background-blend-mode: multiply;
+    background-position: 0 -300px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    color: #FFFFFF;
+    position: relative;
+}
+
+.wrapper-1 {
+    text-align: center;
+    position: absolute;
+    right: 130px;
+    width: 600px;
+    height: 100%;
+    background-color: rgba(102, 102, 102, 0.5);
+}
+
+.thank-you {
+    margin-top: 150px;
+}
+
+.thank-you h1 {
+    font-weight: 800;
+    font-size: 100px;
+    letter-spacing: -0.02em;
+    line-height: 100px;
+}
+
+.thank-you p {
+    margin-top: 10px;
+    font-size: 25px;
+}
+
+.cta-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 150px;
+}
+
+.cta-box p {
+    font-size: 25px;
+}
+
+.cta-button {
+    width: 451px;
+    height: 134px;
+    background-color: #EF4136;
+    display: grid;
+    place-items: center;
+    margin-top: 20px;
+    transition: all 0.3s ease 0s;
+    transform-origin: left;
+}
+
+.cta-button:hover a {
+    transform: translateX(20px);
+}
+
+.cta-button a {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 50px;
+    font-weight: 500;
+    transition: all 0.3s ease 0s;
+}
+
