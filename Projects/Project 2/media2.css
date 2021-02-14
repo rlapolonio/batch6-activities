@@ -1,0 +1,115 @@
+@media screen and (min-width: 320px) and (max-width: 640px) {
+    /* NAV BAR */
+    .header {
+        height: 50px;
+    }
+
+    .wrapper {
+        width: 300px;
+        flex-wrap: wrap;
+    }
+
+    #header-img {
+        max-width: 250px;
+        margin-left: -30px;
+    }
+
+    #hamburger {
+        display: block;
+        background-color: transparent;
+        border: none;
+        font-size: 25px;
+        cursor: pointer;
+        margin-right: -8px;
+    }
+
+    #burger-menu.show {
+        display: block;
+        position: absolute;
+        top: 50px;
+        right: 0;
+        background-color: #fff;
+        width: 150px;
+        
+    }
+
+    #burger-menu.show .nav-links {
+        display: block;
+        font-size: 16px;
+    }
+
+    #burger-menu.show .nav-link {
+        margin-top: 5px;
+    }
+
+    #burger-menu.show .nav-link .button a {
+        font-weight: 400;
+        color: #ffffff;
+    }
+
+    #hamburger:focus {
+        outline: none;
+    }
+    
+    .nav-links {
+        display: none;
+    }
+
+    .scrolling-activeQ #header-img {
+        transform: scale(1);
+        margin-left: -30px;
+    }
+
+    /* SUCCESS SECTION */
+
+    .success {
+        height: 100vh;
+        background-position: center;
+    }
+
+    .wrapper-1 {
+        text-align: center;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 300px;
+        background-color:transparent;
+    }
+
+    .thank-you {
+        margin-top: 150px;
+    }
+
+    .thank-you h1 {
+        font-weight: 800;
+        font-size: 60px;
+        letter-spacing: -0.02em;
+        line-height: 75px;
+    }
+
+    .thank-you p {
+        margin-top: 5px;
+        font-size: 20px;
+    }
+
+    .cta-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 150px;
+    }
+
+    .cta-box p {
+        font-size: 20px;
+    }
+
+    .cta-button {
+        width: 210px;
+        height: 65px;
+        margin-top: 20px;
+    }
+
+    .cta-button a {
+        font-size: 30px;
+        font-weight: 500;
+    }
+}

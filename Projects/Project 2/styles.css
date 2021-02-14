@@ -126,7 +126,7 @@ body {
 #featured {
     position: relative;
     width: 100%;
-    height: 1000px;
+    height: 920px;
     background-color: #707070;
     background-image: url(assets/images/featured.jpg);
     background-blend-mode: multiply;
