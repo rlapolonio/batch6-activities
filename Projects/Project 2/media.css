@@ -68,14 +68,14 @@
 
     /* FEATURED */
     #featured {
-        height: 1000px;
+        height: 925px;
         background-position: -150px 0px;
     }
 
     .wrapper-1 {
         width: 300px;
         flex-direction: column;
-        margin-top: 10px;
+        margin-top: -10px;
         padding-top: 0px;
         justify-content: unset;
     }
@@ -159,19 +159,25 @@
     } 
 
     /* ABOUT US*/
+    #about-us {
+        height: fit-content;
+        padding: 60px 0;
+    }
+
     .wrapper-2 {
         width: 300px;
+        height: fit-content ;
         display: flex;
         flex-wrap: wrap;
         justify-items: center;
         justify-content: center;
         align-content: flex-start;
-        margin-top: 30px;
+        margin-top: 0px;
     }
 
     .wrapper-2 .about {
         width: 300px;
-        height: 250px;
+        height: 200px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -189,14 +195,14 @@
     }
 
     .wrapper-2 .about p {
-        width: 150px;
+        width: 250px;
         font-size: 13px;
         line-height: 15px;
         margin-top: 10px;
     }
 
     .wrapper-2 .about:nth-child(3) {
-        margin-top: -20px;
+        margin-top: 5px;
     }
 
     /* PRODUCTS */
@@ -318,6 +324,31 @@
         cursor: pointer;
     }
 
+    .navigation {
+        top: 5px;
+    }
+
+   .product:hover .cta-mobile {
+        width: 100px;
+        height: 32px;
+        background: #ef4136;
+        display: grid;
+        place-items: center;
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+    }
+    
+    .cta-mobile:hover {
+        background: #ec1303;
+    }
+    
+    .cta-mobile a {
+        font-size: 13px;
+        text-decoration: none;
+        color: #fff;
+    }
+
     /* VIDEO*/
 
     #video-section {
@@ -406,7 +437,7 @@
     
     .form-box h1 {
         font-weight: 500;
-        font-size: 15px;
+        font-size: 13px;
         margin-bottom: 3px;
     }
     

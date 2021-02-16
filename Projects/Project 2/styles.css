@@ -18,6 +18,7 @@ html {
 body {
     font-family: 'Oswald', sans-serif;
     margin-bottom: 250px;
+    background-color: rgba(254, 249, 249, 1);
 }
 
 /* NAV BAR */
@@ -182,6 +183,7 @@ body {
     margin-top: 20px;
     transition: all 0.3s ease 0s;
     transform-origin: left;
+    box-shadow: 0 0 20px #000000;
 }
 
 .cta-button:hover a {
@@ -203,6 +205,7 @@ body {
 
 .img-container {
     position: relative;
+    box-shadow: 0 0 20px #000000;
 }
 
 .featured-tag {
@@ -1030,6 +1033,9 @@ input[name='radio7'], input[name='radio8'] {
     margin-left: calc(-2 * (100% / 3));
 }
 
+.cta-mobile {
+    display: none;
+}
 
 /* VIDEO */
 
