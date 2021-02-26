@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="rlapolonio">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+        <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">  
+        <title>Title</title>
+    </head>
+    <body>
+        <section class="banner">
+            <nav class="wrapper-1">
+                <div class="logo-block">
+                    <img src="images/rla-logo.png" alt="rla-logo" class="logo">
+                    <div class="divider"></div>
+                    <h1 class="activity-title">Tic x Tac x Toe</h1>
+                </div>
+                <ul class="links">
+                    <li class="link"><a href="../Activity 4/ChessBoardGrid.html">Previous Activity</a></li>
+                    <li class="link"><a href="https://rlapolonio.github.io/batch6-activities/">Portfolio</a></li>
+                    <li class="link"><a href="#">Contact Me</a></li>
+                </ul>
+            </nav>
+        </section>
+        <section class="game-section">
+            <div class="turn-select">
+                <div class="select" id="x-start" onclick="xStart()">X Start</div>
+                <div class="select" id="reset-btn" onclick="clearBoard()">
+                    <p id="reset-play">RESET</p>
+                    <p id="again">AGAIN</p>
+                </div>
+                <div class="select" id="o-start" onclick="oStart()">O Start</div>
+            </div>
+            <div class="board">
+                <div class="field">
+                    <div class="tile free" id="a1"></div>
+                    <div class="tile free" id="a2"></div>
+                    <div class="tile free" id="a3"></div>
+                    <div class="tile free" id="b1"></div>
+                    <div class="tile free" id="b2"></div>
+                    <div class="tile free" id="b3"></div>
+                    <div class="tile free" id="c1"></div>
+                    <div class="tile free" id="c2"></div>
+                    <div class="tile free" id="c3"></div>
+                </div>
+            </div>
+            <div class="review">
+                <div class="review-btn prev" onclick="previousMove()">Previous</div>
+                <div class="review-btn next disabled" onclick="nextMove()">Next</div>
+            </div>
+            <div class="alert alert-1">
+                <div class="x-wins">X WINS!</div>
+                <div class="y-wins">O WINS!</div>
+                <div class="draw">DRAW!</div>
+            </div>
+            <div class="alert alert-2">
+                <div class="x-wins">X WINS!</div>
+                <div class="y-wins">O WINS!</div>
+                <div class="draw">DRAW!</div>
+            </div>
+        </section>
+        <script src="app.js"></script>
+    </body>
+</html>

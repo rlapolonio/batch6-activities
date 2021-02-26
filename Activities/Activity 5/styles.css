@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Allura&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Advent+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: rgba(248, 231, 187, .6);
+    width: 100%;
+}
+
+/* HEADER */
+
+.banner {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 75px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+}
+
+.wrapper-1 {
+    width: 1450px;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #eeeeee;
+}
+
+.logo-block {
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 475px;
+}
+
+.logo {
+    width: 200px;
+    height: 40px;
+}
+
+.divider {
+    width: 3px;
+    background-color: #eeeeee;
+    height: 50px;
+    border-radius: 1px;
+}
+
+.activity-title {
+    font-family: 'Allura', cursive;
+    font-size: 45px;
+    transition: all 0.3s ease 0s;
+    cursor:crosshair;
+}
+
+.activity-title:hover {
+    color: #ff533d;
+    cursor: crosshair;
+}
+
+.links {
+    display: inline-flex;
+    justify-content: space-between;
+    font-family: 'Advent Pro', sans-serif;
+    text-transform: uppercase;
+    width: 400px;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.links li {
+    list-style: none;
+}
+
+.links li a {
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s ease 0s;
+}
+
+.links li a:hover {
+    color: #ff533d;
+}
+
+/* GAME SECTION */
+
+.game-section {
+    width: 80%;
+    margin: 0 auto;
+    height: calc(100vh - 75px);
+    display: grid;
+    place-items: center;
+    grid-template-areas: 
+    ". turn-select ."
+    "alert-1 board alert-2"
+    ". review .";
+}
+
+.turn-select {
+    grid-area: turn-select;
+    display: grid;
+    grid-template-columns: repeat(3, 200px);
+    gap: 40px;
+}
+
+#reset-btn {
+    visibility: hidden;
+}
+
+.review {
+    grid-area: review;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 40px;
+    height: 80px;
+}
+
+.select, .review-btn {
+    background-color: #ff533d;
+    width: 200px;
+    height: 80px;
+    color: #000000;
+    display: grid;
+    place-items: center;
+    font-size: 30px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    border-radius: 10px;
+    transition: background-color 0.3s ease 0s;
+}
+
+#again {
+    display: none;
+}
+
+.select:hover, .review-btn:hover {
+    background-color: #0f1626;
+    color: #efefef;
+    cursor: pointer;
+}
+
+.prev, .next {
+    display: none;
+}
+
+.disabled {
+    pointer-events: none;
+    background-color: #fab3a9;
+}
+
+.alert {
+    display: grid;
+    place-items: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 100px;
+    font-weight: 900;
+}
+
+.alert-1 {
+    grid-area: alert-1;
+}
+
+.alert-2 {
+    grid-area: alert-2;
+}
+
+.y-wins, .x-wins, .draw {
+    display: none;
+}
+
+/* GAME FIELD */
+
+.board {
+    grid-area: board;
+}
+
+.field {
+    width: 500px;
+    height: 500px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background-color: #ff533d;
+    place-items: stretch;
+    gap: 7px;
+
+}
+
+.tile {
+    background-color: #0f1626;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.x-tile {
+    background-image: url(images/x.svg);
+}
+
+.o-tile {
+    background-image: url(images/o.svg);
+}
