@@ -4,8 +4,11 @@ let activeTurn; // stores x or o as first turn
 let tiles = document.querySelectorAll('.tile'); // gets all the tiles of the tic tac toe board
 let targetID; // ID of tile clicked
 let xAlerts = document.querySelectorAll('.x-wins'); // notification of winner
-let oAlerts = document.querySelectorAll('.y-wins'); // notification of winner
+let oAlerts = document.querySelectorAll('.o-wins'); // notification of winner
 let drawAlerts = document.querySelectorAll('.draw'); // notification of draw
+let xAlert2 = document.querySelector('.x-wins2'); // notification of winner 2
+let oAlert2 = document.querySelector('.o-wins2'); // notification of winner 2
+let drawAlert2 = document.querySelector('.draw2'); // notification of draw 2
 let reviewBtns = document.querySelectorAll('.review-btn'); // if i delete this everything does not work WHY???
 let xStartBtn = document.querySelector('#x-start'); // get xstart button
 let oStartBtn = document.querySelector('#o-start'); // get ostart button
@@ -14,6 +17,7 @@ let playText = document.querySelector('#reset-play'); // get reset/play text
 let againText = document.querySelector('#again'); // get again text
 let prevBtn = document.querySelector('.prev'); // get previous button
 let nextBtn = document.querySelector('.next'); // get next button
+let screenSize = document.documentElement.clientWidth; // get screen width
 let z; // turn counter
 
 function xStart() { // initialize as x to start
@@ -37,9 +41,9 @@ function clearBoard() { // clear the board of everything
     freeTiles();
     boardHistory = []; // reset move record
     boardState = [ // reset state of the game board
-        [],
-        [],
-        [],
+        ["","",""],
+        ["","",""],
+        ["","",""]
     ];
     xAlerts.forEach(msg => { // hide winning notification
         msg.style.display = 'none';
@@ -53,6 +57,9 @@ function clearBoard() { // clear the board of everything
     reviewBtns.forEach(btn => { // hide move review buttons
         btn.style.display = 'none';
     });
+    xAlert2.style.display = 'none';
+    oAlert2.style.display = 'none';
+    drawAlert2.style.display = 'none';
     activeTurn = ''; // reset first turn
     prevBtn.classList.remove('disabled'); // enable review buttons
     nextBtn.classList.remove('disabled'); // enable review buttons
@@ -160,6 +167,9 @@ function checkWin() { // check board if someone wins or draw
             xAlerts.forEach(msg => {
                 msg.style.display = 'block';
             });
+            if (screenSize <= 862) {
+                xAlert2.style.display = 'block';
+            }
             removeFree();
             showReview();
             showPlayAgain();
@@ -175,6 +185,9 @@ function checkWin() { // check board if someone wins or draw
             oAlerts.forEach(msg => {
                 msg.style.display = 'block';
             });
+            if (screenSize <= 862) {
+                oAlert2.style.display = 'block';
+            }
             removeFree();
             showReview();
             showPlayAgain();
@@ -184,6 +197,9 @@ function checkWin() { // check board if someone wins or draw
             msg.style.display = 'block';
             nextBtn.classList.toggle('disabled');
         });
+        if (screenSize <= 862) {
+            drawAlert2.style.display = 'block';
+        }
         removeFree();
         showReview();
         showPlayAgain();

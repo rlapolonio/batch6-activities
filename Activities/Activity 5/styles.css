@@ -40,12 +40,13 @@ body {
     display: inline-flex;
     justify-content: space-between;
     align-items: center;
-    width: 475px;
+    width: 450px;
+    padding-left: 20px;
 }
 
 .logo {
-    width: 200px;
-    height: 40px;
+    width: 175px;
+    height: 35px;
 }
 
 .divider {
@@ -75,6 +76,7 @@ body {
     width: 400px;
     font-weight: 500;
     font-size: 18px;
+    padding-right: 20px;
 }
 
 .links li {
@@ -93,23 +95,33 @@ body {
 
 /* GAME SECTION */
 
-.game-section {
-    width: 80%;
-    margin: 0 auto;
+.wrapper-2 {
+    width: 100%;
     height: calc(100vh - 75px);
     display: grid;
     place-items: center;
+}
+
+
+.game-section {
+    height: calc(80vh - 75px);
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(3, auto);
     grid-template-areas: 
-    ". turn-select ."
+    "alert-1 turn-select alert-2"
     "alert-1 board alert-2"
-    ". review .";
+    "alert-1 review alert-2";
+    gap: 60px 0px;
+    margin-top: -100px;
 }
 
 .turn-select {
     grid-area: turn-select;
     display: grid;
+    place-items: center;
     grid-template-columns: repeat(3, 200px);
-    gap: 40px;
+    gap: 20px;
 }
 
 #reset-btn {
@@ -163,6 +175,8 @@ body {
     font-family: 'Montserrat', sans-serif;
     font-size: 100px;
     font-weight: 900;
+    text-align: center;
+    line-height: 100px;
 }
 
 .alert-1 {
@@ -173,9 +187,15 @@ body {
     grid-area: alert-2;
 }
 
-.y-wins, .x-wins, .draw {
+.alert-3 {
+    display: none;
+    grid-area: alert-3;
+}
+
+.o-wins, .x-wins, .draw, .o-wins2, .x-wins2, .draw2 {
     display: none;
 }
+
 
 /* GAME FIELD */
 
@@ -191,7 +211,6 @@ body {
     background-color: #ff533d;
     place-items: stretch;
     gap: 7px;
-
 }
 
 .tile {

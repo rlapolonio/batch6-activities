@@ -1,0 +1,105 @@
+@media screen and (max-width: 1128px) {
+
+    .turn-select {
+        grid-template-columns: repeat(3, 125px);
+    }
+
+    .select, .review-btn {
+        width: 125px;
+        height: 80px;
+        font-size: 25px;
+    }
+
+    .alert {
+        font-size: 80px;
+        font-weight: 900;
+        line-height: 80px;
+    }
+
+}
+
+@media screen and (max-width: 862px) {
+
+    .wrapper-1 {
+        width: 100%;
+        display: inline-flex;
+        justify-content: center;
+    }
+
+    .links {
+        display: none;
+    }
+
+    .game-section {
+        width: 90%;
+        grid-template-columns: repeat(1, auto);
+        grid-template-areas: 
+        "turn-select"
+        "alert-3"
+        "board"
+        "review";
+        gap: 20px;
+    }
+
+    .field {
+        width: 70vw;
+        height: 70vw;
+    }
+
+    .alert {
+        display: none;
+    }
+
+
+    .alert-3 {
+        display: block;
+        text-align: center;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 50px;
+        font-weight: 900;
+        line-height: 50px;
+        height: 60px;
+        padding: 10px 0;
+    }
+
+}
+
+@media screen and (max-width: 375px) {
+
+    .logo-block {
+        padding-left: 0;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .logo, .divider {
+        display: none;
+    }
+
+    .game-section {
+        gap: 10px;
+    }
+
+    .field {
+        width: 80vw;
+        height: 80vw;
+    }
+
+    .turn-select {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .select, .review-btn {
+        width: 100px;
+        height: 50px;
+        font-size: 20px;
+    }
+
+    .alert-3 {
+        font-size: 40px;
+        line-height: 40px;
+        height: 45px;
+        padding: 0;
+    }
+
+}

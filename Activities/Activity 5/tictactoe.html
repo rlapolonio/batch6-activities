@@ -5,6 +5,7 @@
         <meta name="author" content="rlapolonio">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="media.css">
         <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">  
         <title>Tic x Tac x Toe</title>
     </head>
@@ -23,42 +24,49 @@
                 </ul>
             </nav>
         </section>
-        <section class="game-section">
-            <div class="turn-select">
-                <div class="select" id="x-start" onclick="xStart()">X Start</div>
-                <div class="select" id="reset-btn" onclick="clearBoard()">
-                    <p id="reset-play">RESET</p>
-                    <p id="again">AGAIN</p>
+        <section class="wrapper-2">
+            <section class="game-section">
+                <div class="turn-select">
+                    <div class="select" id="x-start" onclick="xStart()">X Start</div>
+                    <div class="select" id="reset-btn" onclick="clearBoard()">
+                        <p id="reset-play">RESET</p>
+                        <p id="again">AGAIN</p>
+                    </div>
+                    <div class="select" id="o-start" onclick="oStart()">O Start</div>
                 </div>
-                <div class="select" id="o-start" onclick="oStart()">O Start</div>
-            </div>
-            <div class="board">
-                <div class="field">
-                    <div class="tile free" id="a1"></div>
-                    <div class="tile free" id="a2"></div>
-                    <div class="tile free" id="a3"></div>
-                    <div class="tile free" id="b1"></div>
-                    <div class="tile free" id="b2"></div>
-                    <div class="tile free" id="b3"></div>
-                    <div class="tile free" id="c1"></div>
-                    <div class="tile free" id="c2"></div>
-                    <div class="tile free" id="c3"></div>
+                <div class="board">
+                    <div class="field">
+                        <div class="tile free" id="a1"></div>
+                        <div class="tile free" id="a2"></div>
+                        <div class="tile free" id="a3"></div>
+                        <div class="tile free" id="b1"></div>
+                        <div class="tile free" id="b2"></div>
+                        <div class="tile free" id="b3"></div>
+                        <div class="tile free" id="c1"></div>
+                        <div class="tile free" id="c2"></div>
+                        <div class="tile free" id="c3"></div>
+                    </div>
                 </div>
-            </div>
-            <div class="review">
-                <div class="review-btn prev" onclick="previousMove()">Previous</div>
-                <div class="review-btn next disabled" onclick="nextMove()">Next</div>
-            </div>
-            <div class="alert alert-1">
-                <div class="x-wins">X WINS!</div>
-                <div class="y-wins">O WINS!</div>
-                <div class="draw">DRAW!</div>
-            </div>
-            <div class="alert alert-2">
-                <div class="x-wins">X WINS!</div>
-                <div class="y-wins">O WINS!</div>
-                <div class="draw">DRAW!</div>
-            </div>
+                <div class="review">
+                    <div class="review-btn prev" onclick="previousMove()">Previous</div>
+                    <div class="review-btn next disabled" onclick="nextMove()">Next</div>
+                </div>
+                <div class="alert alert-1">
+                    <div class="x-wins">X<br> <br>W<br>I<br>N<br>S</div>
+                    <div class="o-wins">O<br> <br>W<br>I<br>N<br>S</div>
+                    <div class="draw">D<br>R<br>A<br>W</div>
+                </div>
+                <div class="alert alert-2">
+                    <div class="x-wins">X<br> <br>W<br>I<br>N<br>S</div>
+                    <div class="o-wins">O<br> <br>W<br>I<br>N<br>S</div>
+                    <div class="draw">D<br>R<br>A<br>W</div>
+                </div>
+                <div class="alert-3">
+                    <div class="x-wins2">X WINS!</div>
+                    <div class="o-wins2">O WINS!</div>
+                    <div class="draw2">DRAW!</div>
+                </div>
+            </section>
         </section>
         <script src="app.js"></script>
     </body>
