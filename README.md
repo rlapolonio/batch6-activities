@@ -5,3 +5,7 @@ This is where I will be uploading all the files related to the daily assignments
 ## Page is still under progress
 
 I plan to improve this page so I can properly showcase my skills and my portfolio to potential clients and employers. Stay tuned!
+
+## Coding Challenges
+
+
