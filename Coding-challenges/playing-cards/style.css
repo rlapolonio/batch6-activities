@@ -1,5 +1,11 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+@import url('https://fonts.googleapis.com/css2?family=Libre+Barcode+39+Text&display=swap');
+
+div {
+    padding-left: 50px;
+}
+
+p {
+    font-size: 200px;
+    font-family: 'Libre Barcode 39 Text', cursive;
+    line-height: 220px;
 }
