@@ -8,5 +8,5 @@ I plan to improve this page so I can properly showcase my skills and my portfoli
 
 ## Coding Challenges
 
-1 [TicTacToe](https://rlapolonio.github.io/batch6-activities/Coding-challenges/tictactoe/index.html)
-2 [Playing Cards](https://rlapolonio.github.io/batch6-activities/Coding-challenges/playing-cards/index.html)
+1. [TicTacToe](https://rlapolonio.github.io/batch6-activities/Coding-challenges/tictactoe/index.html)
+2. [Playing Cards](https://rlapolonio.github.io/batch6-activities/Coding-challenges/playing-cards/index.html)
