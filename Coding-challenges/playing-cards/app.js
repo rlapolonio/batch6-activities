@@ -2,7 +2,6 @@
 
 let deck = [];
 let deckNum = [];
-let deckIndex = [];
 let temp = [];
 let suitSymbols = ['♠', '♦', '♥', '♣'];
 let faceValue = ['K', 'Q', 'J', '10', '9', '8', '7', '6', '5', '4', '3', '2', 'A'];
@@ -14,9 +13,7 @@ let clubs = [];
 let dealtCard;
 let dealtCards = [];
 let dealtHand = [];
-let dealtHands = [];
 let dealtValues = [];
-let tempDealtHands = [];
 let suit;
 let value;
 let isSameSuit = false;
@@ -32,7 +29,7 @@ welcomeScreen();
 
 createDeck();
 
-function welcomeScreen() {
+function welcomeScreen() { // prints instructions
     console.log(
 `
 ======================================================================
@@ -74,7 +71,7 @@ function shuffleDeck() {
     return `Current deck has been shuffled. There are ${deck.length} cards left.`;
 }
 
-function suitUp() {
+function suitUp() { // sort to suit
     temp = [spades, diamonds, hearts, clubs];
     for (k = 0; k < deck.length; k++) {
         if (deck[k][0] === '♠') {
@@ -94,7 +91,7 @@ function suitUp() {
     return JSON.stringify(deck);
 }
 
-function faceUp() {
+function faceUp() { // sort to ascending order
     clearTempDeck();
     for (c = 0; c < deck.length; c++) {
         if (deck[c][1] === 'A') {
@@ -132,7 +129,7 @@ function faceUp() {
     return JSON.stringify(deck);
 }
 
-function faceDown() {
+function faceDown() { // sort to descending order
     arrangeDown(deck);
     deck = [];
     transferTo(deck, temp);
@@ -141,7 +138,7 @@ function faceDown() {
     return JSON.stringify(deck);
 }
 
-function dealCard() {
+function dealCard() { // deal a single card
     if (deck.length > 0) {
         dealtCard = deck[0];
         deck.splice(0, 1);
@@ -156,7 +153,7 @@ function dealCard() {
 
 }
 
-function dealHand() {
+function dealHand() { // deal a hand with 5 cards
     dealtHand = [];
     if (deck.length > 4) {
         for (e = 0; e < 5; e++) {
@@ -185,7 +182,7 @@ function dealHand() {
 }
 
 
-function dealAllHands() {
+function dealAllHands() { // deal 5-card hands until deck is exhausted
     createDeck();
     shuffleDeck();
     dealtHand = [];
@@ -206,7 +203,7 @@ function dealAllHands() {
 }
 
 
-function clearTempDeck() {
+function clearTempDeck() { 
     spades = [];
     diamonds = [];
     hearts = [];
@@ -214,7 +211,7 @@ function clearTempDeck() {
     temp = [[],[],[],[],[],[],[],[],[],[],[],[],[]];
 }
 
-function transferTo(main, temp) {
+function transferTo(main, temp) { // return temp array contents to main array
     for (a = 0; a < temp.length; a++) {
         for (b = 0; b < temp[a].length; b++) {
             main.push(temp[a][b]);
@@ -223,7 +220,7 @@ function transferTo(main, temp) {
     clearTempDeck();
 }
 
-function arrangeDown(arr) {
+function arrangeDown(arr) { // sort cards to descending order
     clearTempDeck();
     for (d = 0; d < arr.length; d++) {
         if (arr[d][1] === 'K') {
@@ -257,7 +254,7 @@ function arrangeDown(arr) {
 }
 
 
-function identifyValue() {
+function identifyValue() { // identify face value
     switch(dealtCard[1]) {
         case 'K':
             value = 'King';
@@ -301,7 +298,7 @@ function identifyValue() {
     }
 }
 
-function identifySuit() {
+function identifySuit() { // identify suit
     switch(dealtCard[0]) {
         case '♠':
             suit = 'Spades';
@@ -369,11 +366,9 @@ function checkHand() {
     } else {
         console.log(`You got a High Card, ${dealtHand[0]}`);
     }
-
 }
 
-
-function arrangeHand() {
+function arrangeHand() { // sort dealt hand to descending order
     arrangeDown(dealtHand);
     dealtHand = [];
     transferTo(dealtHand, temp);
