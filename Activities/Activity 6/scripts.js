@@ -637,6 +637,10 @@ function whiteTimer() {
     clearInterval(blkTimer);
     startBtn.classList.add('disabled');
     resetBtn.classList.remove('disabled');
+    whtTimerDisplay.style.backgroundColor = 'rgb(17, 17, 17)';
+    whtTimerDisplay.style.color = 'rgb(239, 239, 239)';
+    blkTimerDisplay.style.backgroundColor = 'transparent';
+    blkTimerDisplay.style.color = 'rgb(17, 17, 17)';
     whtTimer = setInterval(() => {
         z = whtSec < 10 ? 0 : '';
         whtTimerDisplay.innerHTML = `${whtMin}:${z}${whtSec}`;
@@ -658,6 +662,10 @@ function whiteTimer() {
 
 function blackTimer() {
     clearInterval(whtTimer);
+    whtTimerDisplay.style.backgroundColor = 'transparent';
+    whtTimerDisplay.style.color = 'rgb(17, 17, 17)';
+    blkTimerDisplay.style.backgroundColor = 'rgb(17, 17, 17)';
+    blkTimerDisplay.style.color = 'rgb(239, 239, 239)';
     blkTimer = setInterval(() => {
         z = blkSec < 10 ? 0 : '';
         blkTimerDisplay.innerHTML = `${blkMin}:${z}${blkSec}`;
