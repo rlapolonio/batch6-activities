@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="rlapolonio">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+        <title>Functional Chess</title>
+    </head>
+    <body>
+        <section class="wrapper">          
+            <!-- banner -->
+            <div class="banner-wrapper">
+                <nav class="banner">
+                    <div class="title-block">
+                        <h1 class="brand"><a href="https://rlapolonio.github.io/batch6-activities/">rlapolonio</a></h1>
+                        <div class="divider"></div>
+                        <h1 class="activity-title">Functional Chess</h1>
+                    </div>
+                    <nav class="nav-bar">
+                        <ul class="nav-links">
+                            <li class="link"><a href="../Activity 5/tictactoe.html">Previous Activity</a></li>
+                            <li class="link"><a href="https://rlapolonio.github.io/batch6-activities/">Portfolio</a></li>
+                            <li class="link"><a href="#">Contact Me</a></li>
+                        </ul>
+                    </nav>
+                </nav>
+            </div>
+            <section class='gui'>
+                <!-- CONTENT GRID -->
+                <section class="content-grid">
+
+                    <!-- CHESS BOARD -->
+                    <section class="board">
+                        <!-- top grid -->
+                        <div class="top-grid-letter">
+                            <ul class="grid-letter">
+                                <li>A</li>
+                                <li>B</li>
+                                <li>C</li>
+                                <li>D</li>
+                                <li>E</li>
+                                <li>F</li>
+                                <li>G</li>
+                                <li>H</li>
+                            </ul>
+                        </div>
+                        <!-- left grid -->
+                        <div class="left-grid-number">
+                            <ul class="grid-number">
+                                <li>8</li>
+                                <li>7</li>
+                                <li>6</li>
+                                <li>5</li>
+                                <li>4</li>
+                                <li>3</li>
+                                <li>2</li>
+                                <li>1</li>
+                            </ul>
+                        </div>
+                        <section class="container">
+                            <!-- 1st row -->
+                            <div class="tile tile-white col-a row-8" id="A8"><img src="./assets/rook-black.svg" alt="rook-black" class="black piece" id="br1"></div>
+                            <div class="tile tile-black col-b row-8" id="B8"><img src="./assets/knight-black.svg" alt="knight-black" class="black piece" id="bh1"></div>
+                            <div class="tile tile-white col-c row-8" id="C8"><img src="./assets/bishop-black.svg" alt="bishop-black" class="black piece" id="bb1"></div>
+                            <div class="tile tile-black col-d row-8" id="D8"><img src="./assets/queen-black.svg" alt="queen-black" class="black piece" id="bqq"></div>
+                            <div class="tile tile-white col-e row-8" id="E8"><img src="./assets/king-black.svg" alt="king-black" class="black piece" id="bkk"></div>
+                            <div class="tile tile-black col-f row-8" id="F8"><img src="./assets/bishop-black.svg" alt="bishop-black" class="black piece" id="bb2"></div>
+                            <div class="tile tile-white col-g row-8" id="G8"><img src="./assets/knight-black.svg" alt="knight-black" class="black piece" id="bh2"></div>
+                            <div class="tile tile-black col-h row-8" id="H8"><img src="./assets/rook-black.svg" alt="rook-black" class="black piece" id="br2"></div>
+                            <!-- 2nd row -->
+                            <div class="tile tile-black col-a row-7" id="A7"><img src="./assets/pawn-black.svg" alt="pawn-black" class="black piece" id="bp1"></div>
+                            <div class="tile tile-white col-b row-7" id="B7"><img src="./assets/pawn-black.svg" alt="pawn-black" class="black piece" id="bp2"></div>
+                            <div class="tile tile-black col-c row-7" id="C7"><img src="./assets/pawn-black.svg" alt="pawn-black" class="black piece" id="bp3"></div>
+                            <div class="tile tile-white col-d row-7" id="D7"><img src="./assets/pawn-black.svg" alt="pawn-black" class="black piece" id="bp4"></div>
+                            <div class="tile tile-black col-e row-7" id="E7"><img src="./assets/pawn-black.svg" alt="pawn-black" class="black piece" id="bp5"></div>
+                            <div class="tile tile-white col-f row-7" id="F7"><img src="./assets/pawn-black.svg" alt="pawn-black" class="black piece" id="bp6"></div>
+                            <div class="tile tile-black col-g row-7" id="G7"><img src="./assets/pawn-black.svg" alt="pawn-black" class="black piece" id="bp7"></div>
+                            <div class="tile tile-white col-h row-7" id="H7"><img src="./assets/pawn-black.svg" alt="pawn-black" class="black piece" id="bp8"></div>
+                            <!-- 3rd row -->
+                            <div class="tile tile-white col-a row-6" id="A6"></div>
+                            <div class="tile tile-black col-b row-6" id="B6"></div>
+                            <div class="tile tile-white col-c row-6" id="C6"></div>
+                            <div class="tile tile-black col-d row-6" id="D6"></div>
+                            <div class="tile tile-white col-e row-6" id="E6"></div>
+                            <div class="tile tile-black col-f row-6" id="F6"></div>
+                            <div class="tile tile-white col-g row-6" id="G6"></div>
+                            <div class="tile tile-black col-h row-6" id="H6"></div>
+                            <!-- 4th row -->
+                            <div class="tile tile-black col-a row-5" id="A5"></div>
+                            <div class="tile tile-white col-b row-5" id="B5"></div>
+                            <div class="tile tile-black col-c row-5" id="C5"></div>
+                            <div class="tile tile-white col-d row-5" id="D5"></div>
+                            <div class="tile tile-black col-e row-5" id="E5"></div>
+                            <div class="tile tile-white col-f row-5" id="F5"></div>
+                            <div class="tile tile-black col-g row-5" id="G5"></div>
+                            <div class="tile tile-white col-h row-5" id="H5"></div>
+                            <!-- 5th row -->
+                            <div class="tile tile-white col-a row-4" id="A4"></div>
+                            <div class="tile tile-black col-b row-4" id="B4"></div>
+                            <div class="tile tile-white col-c row-4" id="C4"></div>
+                            <div class="tile tile-black col-d row-4" id="D4"></div>
+                            <div class="tile tile-white col-e row-4" id="E4"></div>
+                            <div class="tile tile-black col-f row-4" id="F4"></div>
+                            <div class="tile tile-white col-g row-4" id="G4"></div>
+                            <div class="tile tile-black col-h row-4" id="H4"></div>
+                            <!-- 6th row -->
+                            <div class="tile tile-black col-a row-3" id="A3"></div>
+                            <div class="tile tile-white col-b row-3" id="B3"></div>
+                            <div class="tile tile-black col-c row-3" id="C3"></div>
+                            <div class="tile tile-white col-d row-3" id="D3"></div>
+                            <div class="tile tile-black col-e row-3" id="E3"></div>
+                            <div class="tile tile-white col-f row-3" id="F3"></div>
+                            <div class="tile tile-black col-g row-3" id="G3"></div>
+                            <div class="tile tile-white col-h row-3" id="H3"></div>
+                            <!-- 7th row -->
+                            <div class="tile tile-white col-a row-2" id="A2"><img src="./assets/pawn-white.svg" alt="pawn-white" class="white piece" id="wp1"></div>
+                            <div class="tile tile-black col-b row-2" id="B2"><img src="./assets/pawn-white.svg" alt="pawn-white" class="white piece" id="wp2"></div>
+                            <div class="tile tile-white col-c row-2" id="C2"><img src="./assets/pawn-white.svg" alt="pawn-white" class="white piece" id="wp3"></div>
+                            <div class="tile tile-black col-d row-2" id="D2"><img src="./assets/pawn-white.svg" alt="pawn-white" class="white piece" id="wp4"></div>
+                            <div class="tile tile-white col-e row-2" id="E2"><img src="./assets/pawn-white.svg" alt="pawn-white" class="white piece" id="wp5"></div>
+                            <div class="tile tile-black col-f row-2" id="F2"><img src="./assets/pawn-white.svg" alt="pawn-white" class="white piece" id="wp6"></div>
+                            <div class="tile tile-white col-g row-2" id="G2"><img src="./assets/pawn-white.svg" alt="pawn-white" class="white piece" id="wp7"></div>
+                            <div class="tile tile-black col-h row-2" id="H2"><img src="./assets/pawn-white.svg" alt="pawn-white" class="white piece" id="wp8"></div>
+                            <!-- 8th row -->
+                            <div class="tile tile-black col-a row-1" id="A1"><img src="./assets/rook-white.svg" alt="rook-white" class="white piece" id="wr1"></div>
+                            <div class="tile tile-white col-b row-1" id="B1"><img src="./assets/knight-white.svg" alt="knight-white" class="white piece" id="wh1"></div>
+                            <div class="tile tile-black col-c row-1" id="C1"><img src="./assets/bishop-white.svg" alt="bishop-white" class="white piece" id="wb1"></div>
+                            <div class="tile tile-white col-d row-1" id="D1"><img src="./assets/queen-white.svg" alt="queen-white" class="white piece" id="wqq"></div>
+                            <div class="tile tile-black col-e row-1" id="E1"><img src="./assets/king-white.svg" alt="king-white" class="white piece" id="wkk"></div>
+                            <div class="tile tile-white col-f row-1" id="F1"><img src="./assets/bishop-white.svg" alt="bishop-white" class="white piece" id="wb2"></div>
+                            <div class="tile tile-black col-g row-1" id="G1"><img src="./assets/knight-white.svg" alt="knight-white" class="white piece" id="wh2"></div>
+                            <div class="tile tile-white col-h row-1" id="H1"><img src="./assets/rook-white.svg" alt="rook-white" class="white piece" id="wr2"></div>       
+                        </section>
+                    </section>
+                    <div class="taken-white"></div>
+                    <div class="taken-black"></div>
+                    <div class="buttons">
+                        <button class="reset disabled" onclick="location.reload()">RESET</button>
+                        <button class="start" onclick="initializeTimer()">START</button>
+                    </div>
+                    <div class="timers">
+                        <div class="wht-timer"></div>
+                        <div class="notice"></div>
+                        <div class="blk-timer"></div>
+                    </div>
+
+                </section>
+            </section>
+        </section> 
+        <script src="scripts.js"></script>
+        
+    </body>
+</html>

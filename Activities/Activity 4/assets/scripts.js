@@ -38,9 +38,11 @@ allTiles.forEach(item => {
         var activePiece = document.querySelector('.active-piece');
 
         // move active piece to empty tile
-        if (event.target.classList.contains('tile')){
+        if (event.target.classList.contains('possible-move')){
         event.target.appendChild(activePiece);
         activePiece.classList.remove('active-piece');
+        } else {
+            return `invalid move`;
         };
 
         // move active piece to place of captured piece

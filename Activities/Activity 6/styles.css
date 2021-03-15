@@ -1,0 +1,438 @@
+@import url('https://fonts.googleapis.com/css2?family=Allura&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Advent+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    background-color: rgba(248, 231, 187, .6);
+    width: 100%;
+    height: 100vh;
+}
+
+.banner-wrapper {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 75px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+}
+
+.banner {
+    width: 1450px;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #eeeeee;
+}
+
+.title-block {
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 500px;
+}
+
+.brand {
+    font-family: 'Advent Pro', sans-serif;
+    font-size: 30px;
+    letter-spacing: 5px;
+}
+
+.brand a {
+    text-decoration: none;
+    color: #eeeeee;
+}
+
+.divider {
+    width: 3px;
+    background-color: #eeeeee;
+    height: 50px;
+    border-radius: 1px;
+}
+
+.activity-title {
+    font-family: 'Allura', cursive;
+    font-size: 45px;
+    transition: all 0.3s ease 0s;
+    cursor:crosshair;
+}
+
+.activity-title:hover {
+    color: goldenrod;
+    cursor: crosshair;
+}
+
+.nav-links {
+    display: inline-flex;
+    justify-content: space-between;
+    font-family: 'Advent Pro', sans-serif;
+    text-transform: uppercase;
+    width: 400px;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.nav-links li {
+    list-style: none;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s ease 0s;
+}
+
+.nav-links li a:hover {
+    color:#f2ca5c;
+}
+
+/* CHESS BOARD */
+
+.board {
+    grid-area: board;
+    width: 700px;
+    height: 700px;
+    background-color: #717171;
+    display: grid;
+    grid-template-columns: 4fr 92fr 4fr;
+    grid-template-rows: 4fr 92fr 4fr;
+    grid-template-areas: 
+    ". letter-grid ."
+    "number-grid chessboard ."
+    ". . .";
+    cursor:grab;
+}
+
+.top-grid-letter {
+    grid-area: letter-grid;
+    display: grid;
+    align-items: center;
+}
+
+.grid-letter {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: 1fr;
+    place-items: center;
+}
+
+.left-grid-number {
+    grid-area: number-grid;
+}
+
+.grid-number {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(8, 1fr);
+    height: 100%;
+    place-items: center;
+}
+
+ul.grid-letter li, ul.grid-number li {
+    list-style: none;
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    color: #A4A4A4;
+}
+
+.container {
+    grid-area: chessboard;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    height: 100%;
+    border: solid 2px #111;
+    background-color: #111;
+    gap: 2px;
+}
+
+.tile {
+    display: grid;
+    place-items: center;
+}
+
+.possible-move {
+    border: 2px solid goldenrod;
+}
+
+.tile-black {
+    background-color: #717171;
+    color: white;
+}
+
+.tile-white {
+    background-color: #A4A4A4;
+    color: black;
+}
+
+.piece {
+    width: 85%;
+    height: auto;
+    transition: all 0.3s ease 0s;
+}
+
+.piece:hover {
+    transform: scale(1.2);
+}
+
+.active-piece {
+    transform: scale(1.2);
+}
+
+.disabled-piece {
+    pointer-events: none;
+}
+
+/* GUI */
+
+.gui {
+    position: relative;
+    width: 100%;
+    display: grid;
+    place-items: center;
+}
+
+.content-grid {
+    /* background-color: rosybrown; */
+    position: relative;
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: 70px auto 70px;
+    grid-template-rows: 60px auto 60px;
+    grid-template-areas:
+    ". timers ."
+    "left board right"
+    ". buttons .";
+    place-items: center;
+}
+
+.taken-white {
+    grid-area: left;
+    align-self: end;
+    display: flex;
+    flex-direction:column-reverse;
+    align-items: center;
+    width: fit-content;
+}
+
+.taken-black {
+    grid-area: right;
+    align-self: start;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+}
+
+.taken-black img, .taken-white img {
+    width: 60%;
+    height: auto;
+}
+
+.buttons {
+    grid-area: buttons;
+}
+
+.timers {
+    grid-area: timers;
+    display: inline-flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.wht-timer, .blk-timer {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 30px;
+    width: 200px;
+    text-align: center;
+}
+
+.notice {
+    color: #111;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 40px;
+    font-weight: 600;
+    text-align: center;
+    width: 300px;
+    text-transform: uppercase;
+}
+
+button.reset, button.start {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    height: 45px;
+    width: 200px;
+    background-color: #717171;
+    color: #efefef;
+    transition: all 0.3s ease 0s;
+    border: none;
+    margin: 0 20px;
+}
+
+button.reset:hover, button.start:hover {
+    background-color: goldenrod;
+    color: #111;
+    border: 2px solid #111;
+}
+
+.disabled {
+    background-color: rgba(113, 113, 113, 0.3) !important; 
+    pointer-events: none;
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 1609px) {
+
+    .content-grid {
+        margin: 20px auto;
+        display: grid;
+        grid-template-columns: 70px 750px 70px;
+        grid-template-areas:
+        "left board right"
+        ". reset .";
+    }
+
+    .chess-logo, .chess-logo2, .trivia-box, .gen-logo, .gen-trivia {
+        display: none;
+    }
+
+}
+
+@media screen and (max-width: 1449px) {
+
+    .banner {
+        padding: 0 20px;
+    }
+
+}
+
+@media screen and (max-width: 1009px) {
+
+    .content-grid {
+        grid-template-columns: 750px;
+        grid-template-rows: 750px 60px 1fr 1fr;
+        grid-template-areas:
+        "board"
+        "reset"
+        "left"
+        "right";
+        row-gap: 5px;
+        height: fit-content;
+    }
+    
+    .taken-white {
+        width: 750px;
+        grid-template-columns: repeat(16, 1fr);
+    }
+    
+    .taken-black {
+        width: 750px;
+        grid-template-columns: repeat(16, 1fr);
+    }
+
+}
+
+@media screen and (max-width: 949px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    .banner {
+        display: grid;
+        place-content: center;
+    }
+
+}
+
+@media screen and (max-width: 749px) {
+
+    .board {
+        width: 100vw;
+        height: 100vw;
+    }
+
+    .banner {
+        width: 100%;;
+    }
+
+    button.reset {
+        height: 6vw;
+        width: 27vw;
+        font-size: 3vw;
+    }
+
+    .content-grid {
+        width: 100vw;
+        grid-template-columns: 100vw;
+        grid-template-rows: 100vw 8vw 1fr 1fr;
+    }
+
+    .taken-white {
+        width: 100vw;
+    }
+    
+    .taken-black {
+        width: 100vw;
+    }
+
+    ul.grid-letter li, ul.grid-number li {
+        font-size: 2vw;
+    }
+
+}
+
+@media screen and (max-width: 499px) {
+
+    .title-block {
+        width: 100%;
+    }
+
+    .brand, .divider {
+        display: none;
+    }
+
+    .activity-title {
+         font-size: 10vw;
+    }
+
+    .banner-wrapper {
+        height: 15vw;
+    }
+
+    .content-grid {
+        grid-template-rows: 100vw 8vw;
+    }
+
+    .taken-white {
+        display: none;
+    }
+    
+    .taken-black {
+        display: none;
+    }
+}
+
+/* animations */
+
+@keyframes shine {
+    0% {background-color: #111;}
+    5% {background-color: goldenrod;}
+    10% {background-color: #111;}
+    100% {background-color: #111;}
+}

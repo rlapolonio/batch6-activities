@@ -1,5 +1,3 @@
-// ['♥K', '♥Q', '♥J', '♥10', '♥A'] 
-
 let deck = [];
 let deckNum = [];
 let temp = [];
@@ -35,22 +33,23 @@ createDeck();
 function welcomeScreen() { // prints instructions
     console.log(
 `
-======================================================================
+==========================================================================
 Let's play Cards!
 
 Available commands:
-Create a New Deck: createDeck()
-Shuffle the current Deck: shuffleDeck()
-Arrange current Deck to each suit: suitUp()
-Arrange current Deck in ascending order: faceUp()
-Arrange current Deck in descending order: faceDown()  (///.^)
-Deal 1 card from current Deck: dealCard()
-Deal 1 hand (5 cards) from current Deck: dealHand()
-Deal hands (5 cards each) from a newly created and shuffled deck until
-    said deck is exhausted: dealAllHands()
+    Create a New Deck: createDeck()
+    Shuffle the current Deck: shuffleDeck()
+    Arrange current Deck to each suit: suitUp()
+    Arrange current Deck in ascending order: faceUp()
+    Arrange current Deck in descending order: faceDown()  (///.^)
+    Deal 1 card from current Deck: dealCard()
+    Deal 1 hand (5 cards) from current Deck: dealHand()
+    Deal hands (5 cards each) from a newly created and shuffled deck until
+        said deck is exhausted: dealAllHands()
 
+A fresh deck has been created and is ready for use.
 To play, input keywords.
-======================================================================
+==========================================================================
 `
     )
 }
@@ -210,9 +209,7 @@ function dealHand() { // deal a hand with 5 cards
             dealtHand.push(dealtCard);
         }
         arrangeHand();
-        showActualHand(dealtHand);
         showHand();
-        checkHand();
         return `There are ${deck.length} cards left.`;
     } else {
         return `There are no cards left to play.`;
@@ -505,7 +502,6 @@ function checkPair() {
         isOnePair = true;
     }
 }
-
 
 function resetHandCheck() {
     isSameSuit = false;

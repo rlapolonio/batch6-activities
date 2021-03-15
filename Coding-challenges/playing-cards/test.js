@@ -1,17 +1,15 @@
-// ['♥K', '♥Q', '♥J', '♥10', '♥A'] 
-
 let deck = [];
-let deckNum = [];
 let temp = [];
 let suitSymbols = ['♠', '♦', '♥', '♣'];
 let faceValue = ['K', 'Q', 'J', '10', '9', '8', '7', '6', '5', '4', '3', '2', 'A'];
 let suitNames = ['Spades', 'Diamonds', 'Hearts', 'Clubs'];
+let faceNames = ['King', 'Queen', 'Jack', 'Ten', 'Nine', 'Eight', 'Seven', 'Six',
+'Five', 'Four', 'Three', 'Two', 'Ace'];
 let spades = [];
 let diamonds = [];
 let hearts = [];
 let clubs = [];
 let dealtCard;
-let dealtCards = [];
 let dealtHand = [];
 let dealtValues = [];
 let suit;
@@ -24,13 +22,11 @@ let isThree = false;
 let isFullHouse = false;
 let isTwoPair = false;
 let isOnePair = false;
-let actualCard;
-let cardSuit;
-let cardValue;
 
-welcomeScreen();
+// welcomeScreen();
 
 createDeck();
+shuffleDeck();
 
 function welcomeScreen() { // prints instructions
     console.log(
@@ -74,68 +70,25 @@ function shuffleDeck() {
 }
 
 function suitUp() { // sort to suit
-    temp = [spades, diamonds, hearts, clubs];
-    for (k = 0; k < deck.length; k++) {
-        if (deck[k][0] === '♠') {
-            temp[0].push(deck[k]);
-        } else if (deck[k][0] === '♦') {
-            temp[1].push(deck[k]);
-        } else if (deck[k][0] === '♥') {
-            temp[2].push(deck[k]);
-        } else if (deck[k][0] === '♣') {
-            temp[3].push(deck[k]);
-        }
-    }
-    deck = [];
-    transferTo(deck, temp);
-    clearTempDeck();
+    deck = deck.sort((a,b) => {
+        return (suitSymbols.indexOf(a[0]) > suitSymbols.indexOf(b[0])) ? 1 : -1;
+    });
     console.log(`${JSON.stringify(deck)}`)
     return `Current deck has been sorted per suit. There are ${deck.length} cards left.`;
 }
 
-function faceUp() { // sort to ascending order
-    clearTempDeck();
-    for (c = 0; c < deck.length; c++) {
-        if (deck[c][1] === 'A') {
-            temp[0].push(deck[c]);
-        } else if (deck[c][1] === '2') {
-            temp[1].push(deck[c]);
-        } else if (deck[c][1] === '3') {
-            temp[2].push(deck[c]);
-        } else if (deck[c][1] === '4') {
-            temp[3].push(deck[c]);
-        } else if (deck[c][1] === '5') {
-            temp[4].push(deck[c]);
-        } else if (deck[c][1] === '6') {
-            temp[5].push(deck[c]);
-        } else if (deck[c][1] === '7') {
-            temp[6].push(deck[c]);
-        } else if (deck[c][1] === '8') {
-            temp[7].push(deck[c]);
-        } else if (deck[c][1] === '9') {
-            temp[8].push(deck[c]);
-        } else if (deck[c][1] === '1' && deck[c][2] === '0') {
-            temp[9].push(deck[c]);
-        } else if (deck[c][1] === 'J') {
-            temp[10].push(deck[c]);
-        } else if (deck[c][1] === 'Q') {
-            temp[11].push(deck[c]);
-        } else if (deck[c][1] === 'K') {
-            temp[12].push(deck[c]);
-        } 
-    }
-    deck = [];
-    transferTo(deck, temp);
-    clearTempDeck();
+function faceUp() {
+    deck = deck.sort((a,b) => {
+        return (faceValue.indexOf(a.substr(1)) > faceValue.indexOf(b.substr(1))) ? -1 : 1;
+    });
+
     console.log(`${JSON.stringify(deck)}`)
     return `Current deck has been sorted in ascending order. There are ${deck.length} cards left.`;
 }
 
+
 function faceDown() { // sort to descending order
     arrangeDown(deck);
-    deck = [];
-    transferTo(deck, temp);
-    clearTempDeck();
     console.log(`${JSON.stringify(deck)}`)
     return `Current deck has been sorted in descending order. There are ${deck.length} cards left.`;
 }
@@ -144,12 +97,9 @@ function dealCard() { // deal a single card
     if (deck.length > 0) {
         dealtCard = deck[0];
         deck.splice(0, 1);
-        identifySuit();
-        identifyValue();
-        deckNum = deck.length;
-        dealtCards.push(dealtCard);
+        identifyCard();
         showActualCard(dealtCard);
-        return `You got ${dealtCard} ${value} of ${suit}. There are ${deckNum} cards left.`;
+        return `You got ${dealtCard} ${value} of ${suit}. There are ${deck.length} cards left.`;
     } else {
         return `There are no cards left to play.`;
     }
@@ -210,9 +160,7 @@ function dealHand() { // deal a hand with 5 cards
             dealtHand.push(dealtCard);
         }
         arrangeHand();
-        showActualHand(dealtHand);
         showHand();
-        checkHand();
         return `There are ${deck.length} cards left.`;
     } else {
         return `There are no cards left to play.`;
@@ -246,7 +194,6 @@ function showActualHand(x) {
     )
 }
 
-
 function dealAllHands() { // deal 5-card hands until deck is exhausted
     createDeck();
     shuffleDeck();
@@ -268,7 +215,6 @@ function dealAllHands() { // deal 5-card hands until deck is exhausted
     return `Not enough cards left for a 5-card Hand.`;
 }
 
-
 function clearTempDeck() { 
     spades = [];
     diamonds = [];
@@ -277,108 +223,16 @@ function clearTempDeck() {
     temp = [[],[],[],[],[],[],[],[],[],[],[],[],[]];
 }
 
-function transferTo(main, temp) { // return temp array contents to main array
-    for (a = 0; a < temp.length; a++) {
-        for (b = 0; b < temp[a].length; b++) {
-            main.push(temp[a][b]);
-        }
-    }
-    clearTempDeck();
-}
-
 function arrangeDown(arr) { // sort cards to descending order
     clearTempDeck();
-    for (d = 0; d < arr.length; d++) {
-        if (arr[d][1] === 'K') {
-            temp[0].push(arr[d]);
-        } else if (arr[d].charAt(1) === 'Q') {
-            temp[1].push(arr[d]);
-        } else if (arr[d].charAt(1) === 'J') {
-            temp[2].push(arr[d]);
-        } else if (arr[d].charAt(1) === '1' && arr[d].charAt(2) === '0') {
-            temp[3].push(arr[d]);
-        } else if (arr[d].charAt(1) === '9') {
-            temp[4].push(arr[d]);
-        } else if (arr[d].charAt(1) === '8') {
-            temp[5].push(arr[d]);
-        } else if (arr[d].charAt(1) === '7') {
-            temp[6].push(arr[d]);
-        } else if (arr[d].charAt(1) === '6') {
-            temp[7].push(arr[d]);
-        } else if (arr[d].charAt(1) === '5') {
-            temp[8].push(arr[d]);
-        } else if (arr[d].charAt(1) === '4') {
-            temp[9].push(arr[d]);
-        } else if (arr[d].charAt(1) === '3') {
-            temp[10].push(arr[d]);
-        } else if (arr[d].charAt(1) === '2') {
-            temp[11].push(arr[d]);
-        } else if (arr[d].charAt(1) === 'A') {
-            temp[12].push(arr[d]);
-        } 
-    }
+    arr = arr.sort((a,b) => {
+        return (faceValue.indexOf(a.substr(1)) > faceValue.indexOf(b.substr(1))) ? 1 : -1;
+    });
 }
 
-
-function identifyValue() { // identify face value
-    switch(dealtCard[1]) {
-        case 'K':
-            value = 'King';
-            break;
-        case 'Q':
-            value = 'Queen';
-            break;
-        case 'J':
-            value = 'Jack';
-            break;
-        case '9':
-            value = 'Nine';
-            break;
-        case '8':
-            value = 'Eight';
-            break;
-        case '7':
-            value = 'Seven';
-            break;
-        case '6':
-            value = 'Six';
-            break;
-        case '5':
-            value = 'Five';
-            break;
-        case '4':
-            value = 'Four';
-            break;
-        case '3':
-            value = 'Three';
-            break;
-        case '2':
-            value = 'Two';
-            break;
-        case 'A':
-            value = 'Ace';
-            break;
-        default:
-            value = 'Ten';
-            break;
-    }
-}
-
-function identifySuit() { // identify suit
-    switch(dealtCard[0]) {
-        case '♠':
-            suit = 'Spades';
-            break;
-        case '♦':
-            suit = 'Diamonds';
-            break;
-        case '♥':
-            suit = 'Hearts';
-            break;
-        case '♣':
-            suit = 'Clubs';
-            break;
-    }
+function identifyCard() { // identify card
+    value = faceNames[faceValue.indexOf(dealtCard.substr(1))];
+    suit = suitNames[suitSymbols.indexOf(dealtCard[0])];
 }
 
 function checkHand() {
@@ -436,8 +290,6 @@ function checkHand() {
 
 function arrangeHand() { // sort dealt hand to descending order
     arrangeDown(dealtHand);
-    dealtHand = [];
-    transferTo(dealtHand, temp);
 }
 
 function checkSameSuit() {
@@ -506,7 +358,6 @@ function checkPair() {
     }
 }
 
-
 function resetHandCheck() {
     isSameSuit = false;
     isRoyal = false;
@@ -555,12 +406,4 @@ const deepCopyFunction = (inObject) => { // deep copy the array
 // test dealtHand = ['♦3', '♦3', '♦3', '♦4', '♦A'] three of a kind
 // test dealtHand = ['♦4', '♦3', '♦3', '♦3', '♦4'] three of a kind
 // test dealtHand = ['♦5', '♦3', '♦3', '♦3', '♦4'] three of a kind
-// test dealtHand = ['♦5', '♦5', '♦4', '♦4', '♦3'] 2 pair
-// test dealtHand = ['♦6', '♦5', '♦5', '♦4', '♦4'] 2 pair
-// test dealtHand = ['♦6', '♦6', '♦5', '♦4', '♦4'] 2 pair
-// test dealtHand = ['♦6', '♦6', '♦5', '♦4', '♦4'] full house
-// test dealtHand = ['♦6', '♦6', '♦5', '♦4', '♦3'] 1 pair
-// test dealtHand = ['♦6', '♦5', '♦5', '♦4', '♦3']
-// test dealtHand = ['♦6', '♦5', '♦4', '♦4', '♦3']
-// test dealtHand = ['♦6', '♦5', '♦4', '♦3', '♦3']
 
