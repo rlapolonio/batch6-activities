@@ -15,6 +15,7 @@ let boardState = [
     ['','','','','','','',''],
     ['','','','','','','','']
 ];
+let tempBoardState = [];
 let whitePile = document.querySelector('.taken-white');
 let blackPile = document.querySelector('.taken-black');
 let activePiece;
@@ -74,6 +75,37 @@ let wr1 = document.getElementById('wr1');
 let wr2 = document.getElementById('wr2');
 let br1 = document.getElementById('br1');
 let br2 = document.getElementById('br2');
+let isBklCheck = false;
+let isWhtCheck = false;
+let wKing = document.getElementById('wkk');
+let bKing = document.getElementById('bkk');
+let wKingId,
+    bKingId;
+let checkers = [],
+    possibleChecks = [];
+let checkTiles;
+let blackWins = false;
+let whiteWins = false;
+let wKingPiece, bKingPiece;
+let winMessage = document.querySelector('.winmessage');
+let winNotice = document.querySelector('.win-notice');
+let turnMsg = document.querySelector('.turn-msg');
+let timeLeft = document.querySelector('.time-left');
+let turnCtr = 0;
+let pbRooks = document.querySelector('.pb-rooks');
+let pwRooks = document.querySelector('.pw-rooks');
+let pbBishops = document.querySelector('.pb-bishops');
+let pwBishops = document.querySelector('.pw-bishops');
+let pbHorses = document.querySelector('.pb-horses');
+let pwHorses = document.querySelector('.pw-horses');
+let pbQueens = document.querySelector('.pb-queens');
+let pwQueens = document.querySelector('.pw-queens');
+let promoChoices = document.querySelector('.promo-choices');
+let promoWhite = document.querySelector('.promo-white');
+let promoBlack = document.querySelector('.promo-black');
+let promoPiece;
+let promoTileId,
+    promoTile;
 
 initializeBoard();
 
@@ -99,6 +131,7 @@ board.addEventListener('click', event => {
                 if (pieceId.includes('wp') || pieceId.includes('bp')) {
                     initEPass(event);
                     takeEPass(event);
+                    checkPromo(event);
                 } else if (pieceId.includes('wk')) {
                     if (isWhiteCast && event.target.id.includes('C1')) {
                         wr1CastTile.appendChild(wr1);
@@ -132,6 +165,31 @@ board.addEventListener('click', event => {
     }
 });
 
+promoChoices.addEventListener('click', event => {
+    promoTile = document.getElementById(promoTileId);
+    promoTile.removeChild(promoTile.firstChild);
+    if (event.target.id.includes('wr')) {
+        promoTile.appendChild(pwRooks.children[0]);
+    } else if (event.target.id.includes('wb')) {
+        promoTile.appendChild(pwBishops.children[0]);
+    } else if (event.target.id.includes('wh')) {
+        promoTile.appendChild(pwHorses.children[0]);
+    } else if (event.target.id.includes('wq')) {
+        promoTile.appendChild(pwQueens.children[0]);
+    } else if (event.target.id.includes('br')) {
+        promoTile.appendChild(pbRooks.children[0]);
+    } else if (event.target.id.includes('bb')) {
+        promoTile.appendChild(pbBishops.children[0]);
+    } else if (event.target.id.includes('bh')) {
+        promoTile.appendChild(pbHorses.children[0]);
+    } else if (event.target.id.includes('bq')) {
+        promoTile.appendChild(pbQueens.children[0]);
+    }
+    promoChoices.style.display = 'none';
+    promoWhite.style.display = 'none'
+    promoBlack.style.display = 'none'
+});
+
 function transferToPile() {
     allTiles.forEach(tile => {
         if (tile.children.length > 1) {
@@ -151,6 +209,11 @@ function clearSelection() {
 }
 
 function turnHandler() {
+    turnCtr++;
+    updateBoard();
+    checkCast();
+    checkWin();
+    checkCheck();
     (activeTurn === 'white') ? activeTurn = 'black' : activeTurn = 'white';
     if (activeTurn === 'white') {
         blkIsPaused = true;
@@ -159,10 +222,9 @@ function turnHandler() {
         blkIsPaused = false;
         whtIsPaused = true;
     }
-    updateBoard();
     deHiLightTiles();
     notice.innerHTML = `${activeTurn} turn`;
-    console.log(`${activeTurn}'s turn`);   
+    console.log(`${activeTurn}'s turn`); 
 }
 
 function updateBoard() {
@@ -195,7 +257,7 @@ function initializeBoard() {
     });
     toggleOccupied();
     recordState();
-    board.style.pointerEvents = 'none';
+    // board.style.pointerEvents = 'none';
     notice.innerHTML = 'press start';
 }
 
@@ -237,6 +299,13 @@ function highlightTiles() {
     possibleTakes.forEach(tile => {
         document.getElementById(tile).classList.add('possible-move');
     });
+    if (checkers.length > 0) {
+        checkers.forEach(tile => {
+            document.getElementById(tile).classList.add('checker');
+            document.getElementById(tile).children[0].classList.add('checked');
+        });
+
+    }
 }
 
 function deHiLightTiles() {
@@ -246,6 +315,7 @@ function deHiLightTiles() {
     possibleTakes.forEach(tile => {
         document.getElementById(tile).classList.remove('possible-move');
     });
+
     possibleMoves = [];
     possibleTakes = [];
 }
@@ -306,6 +376,112 @@ function checkTake() {
     possibleTakes = possibleTakes.filter(isUnoccupied);
 }
 
+function checkCheck() {
+
+    checkers = [];
+
+    checkTiles = document.querySelectorAll('.checker');
+    if (checkTiles.length > 0) {
+        checkTiles.forEach(tile => {
+            tile.classList.remove('checker');
+        })
+    }
+    wKing.classList.remove('checked');
+    bKing.classList.remove('checked');
+
+    parentTileId = activePiece.parentElement.id;
+    a = colTiles.indexOf(parentTileId[0]);
+    b = rowTiles.indexOf(parentTileId[1]);
+
+    getCross();
+    getDiagonal();
+    getGallop();
+
+    
+    if (pieceId.includes('wp')) {
+        diagonals[0].length = 1;
+        diagonals[1].length = 1;
+        diagonals[2].length = 0;
+        diagonals[3].length = 0;
+        purgeForCheck(diagonals);
+    } else if (pieceId.includes('bp')) {
+        diagonals[0].length = 0;
+        diagonals[1].length = 0;
+        diagonals[2].length = 1;
+        diagonals[3].length = 1;
+        purgeForCheck(diagonals);
+    } else if (pieceId.includes('wr') || pieceId.includes('br')) {
+        purgeForCheck(cross);
+    } else if (pieceId.includes('wb') || pieceId.includes('bb')) {
+        purgeForCheck(diagonals);
+    } else if (pieceId.includes('wq') || pieceId.includes('bq') ||
+        pieceId.includes('wk') || pieceId.includes('bk')) {
+        purgeForCheck(cross);
+        purgeForCheck(diagonals);
+    } else if (pieceId.includes('wh') || pieceId.includes('bh')) {
+        purgeForCheck(gallops);
+    }
+    checkers = checkers.filter(isUnoccupied);
+    highlightTiles();
+}
+
+function checkWin() {
+    tempBoardState = [];
+    tempBoardState = deepCopyFunction(boardState);
+    bKingPiece = 0;
+    wKingPiece = 0;
+    for (g = 0; g < tempBoardState.length; g++) {
+        tempBoardState[g].forEach(tile => {
+            if (tile != '') {
+                if (tile.includes('wk')) {
+                    wKingPiece++;
+                } else if (tile.includes('bk')) {
+                    bKingPiece++;
+                }
+            }
+        });
+    }
+    if (wKingPiece === 0) {
+        blackWins = true;
+        console.log(`black wins`);
+        endGame();
+    } else if (bKingPiece === 0) {
+        whiteWins = true;
+        console.log(`white wins`);
+        endGame();
+    }
+}
+
+function endGame() {
+    board.style.pointerEvents = 'none';
+    winNotice.style.display = 'grid';
+    if (blackWins) {
+        winMessage.innerHTML = `Black<br>wins!`;
+        z = blkSec < 10 ? 0 : '';
+        timeLeft.innerHTML = `Time left: ${blkMin}:${z}${blkSec}`;
+    } else if (whiteWins) {
+        winMessage.innerHTML = `White<br>wins!`;
+        z = whtSec < 10 ? 0 : '';
+        timeLeft.innerHTML = `Time left: ${whtMin}:${z}${whtSec}`;
+    }
+    turnMsg.innerHTML = `# of Turns: ${turnCtr}`;
+    clearInterval(blkTimer);
+    clearInterval(whtTimer);
+}
+
+function checkPromo(e) {
+    promoTileId = '';
+    if (pieceId.includes('wp') && e.target.id[1] === '8') {
+        promoTileId = e.target.id;
+        promoChoices.style.display = 'grid';
+        promoWhite.style.display = 'grid';
+    } else if (pieceId.includes('bp') && e.target.id[1] === '1') {
+        promoTileId = e.target.id;
+        promoChoices.style.display = 'grid';
+        promoBlack.style.display = 'grid';
+    }
+}
+
 function initEPass(e) {
     isEPass = isEPass ? false : false;
     ePiece = document.querySelector('.pass');
@@ -327,18 +503,21 @@ function initEPass(e) {
 }
 
 function takeEPass(e) {
-    if (pieceId.includes('wp') || pieceId.includes('bp')) {
-        if ((colTiles.indexOf(e.target.id[0]) != colTiles.indexOf(parentTileId[0])) ) {
-            x = e.target.id[0];
-            y = parentTileId[1]
-            tile = document.getElementById(`${x}${y}`);
-            if (tile.children[0].classList.contains('black')) {
-                whitePile.appendChild(tile.children[0]);
-            } else if (tile.children[0].classList.contains('white')) {
-                blackPile.appendChild(tile.children[0]);
-            }
-        }
+    if (isEPass && (pieceId.includes('wp') || pieceId.includes('bp'))) {
+        if ((colTiles.indexOf(e.target.id[0]) != colTiles.indexOf(parentTileId[0])) &&
+            ((e.target.id[1] === '6' && pieceId.includes('wp')) ||
+            (e.target.id[1] === '3' && pieceId.includes('bp')))  ) {
+                x = e.target.id[0];
+                y = parentTileId[1]
+                tile = document.getElementById(`${x}${y}`);
+                if (tile.children[0].classList.contains('black')) {
+                    whitePile.appendChild(tile.children[0]);
+                } else if (tile.children[0].classList.contains('white')) {
+                    blackPile.appendChild(tile.children[0]);
+                }
+        } 
     }
+    isEPass = isEPass ? false : false;
 }
 
 function checkEPass() {
@@ -372,6 +551,12 @@ function checkAdjacentPass() {
 function checkCast() {
     isBlackCast = (bKCtr < 1) ? true : false;
     isWhiteCast = (wKCtr < 1) ? true : false;
+    if (bKing.classList.contains('checked')) {
+        isBlackCast = false;
+    }
+    if (wKing.classList.contains('checked')) {
+        isWhiteCast = false;
+    }
 }
 
 function isUnoccupied(tile) {
@@ -444,7 +629,6 @@ function getCross() {
         }
     }
     // console.log(cross);
-    checkCast();
     if (pieceId.includes('wk') || pieceId.includes('bk')) {
         if (isWhiteCast || isBlackCast) {
             cross[0] = cross[0].filter(isBlocked);
@@ -577,6 +761,37 @@ function purgeForTake(arr) {
     pushToPossibleTakes(temp);
 }
 
+function purgeForCheck(arr) {
+    temp = [];
+    temp = deepCopyFunction(arr);
+    possibleChecks = [];
+    for (g = 0; g < temp.length; g++) {
+        if (temp[g].length > 0) {
+            temp[g].forEach(tile => {
+                attemptTile = document.getElementById(tile);
+                if (attemptTile.classList.contains('occupied')) {
+                    if (attemptTile.children[0].classList.contains(activeTurn)) {
+                        temp[g].splice(temp[g].indexOf(tile), temp[g].length);
+                    } else {
+                        temp[g].splice(temp[g].indexOf(tile) + 1, temp[g].length);
+                    }
+                } 
+            });
+        }
+    }
+    pushToPossibleChecks(temp);
+    possibleChecks.forEach(tile => {
+        attemptTile = document.getElementById(tile);
+        if (attemptTile.classList.contains('occupied')) {
+            if (activeTurn === 'black' && attemptTile.children[0].id.includes('wk')) {
+                checkers.push(tile); 
+            } else if (activeTurn === 'white' && attemptTile.children[0].id.includes('bk')) {
+                checkers.push(tile);
+            }
+        } 
+    })
+}
+
 function pushToPossibleMoves(arr) {
     for (h = 0; h < arr.length; h++) {
         if (arr[h].length > 0) {
@@ -592,6 +807,16 @@ function pushToPossibleTakes(arr) {
         if (arr[h].length > 0) {
             arr[h].forEach(tile => {
                 possibleTakes.push(tile);
+            });
+        }
+    }
+}
+
+function pushToPossibleChecks(arr) {
+    for (h = 0; h < arr.length; h++) {
+        if (arr[h].length > 0) {
+            arr[h].forEach(tile => {
+                possibleChecks.push(tile);
             });
         }
     }
@@ -650,6 +875,7 @@ function whiteTimer() {
             blackTimer();
         } else if (whtMin == 0) {
             clearInterval(whtTimer);
+            blackWins = true;
         } else if (whtMSec < 0) {
             whtSec--;
             whtMSec = 99;
@@ -675,6 +901,7 @@ function blackTimer() {
             whiteTimer();
         } else if (blkMin == 0) {
             clearInterval(blkTimer);
+            whiteWins = true;
         } else if (blkMSec < 0) {
             blkSec--;
             blkMSec = 99;
@@ -684,3 +911,7 @@ function blackTimer() {
         }
     }, 10);
 }
+
+
+// create promotion function
+// complete castling condition

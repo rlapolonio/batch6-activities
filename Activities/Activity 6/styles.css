@@ -167,6 +167,10 @@ ul.grid-letter li, ul.grid-number li {
     border: 2px solid goldenrod;
 }
 
+.checker {
+    border: 2px solid red;
+}
+
 .tile-black {
     background-color: #717171;
     color: white;
@@ -225,6 +229,7 @@ ul.grid-letter li, ul.grid-number li {
     flex-direction:column-reverse;
     align-items: center;
     width: fit-content;
+    pointer-events: none;
 }
 
 .taken-black {
@@ -234,6 +239,7 @@ ul.grid-letter li, ul.grid-number li {
     flex-direction: column;
     align-items: center;
     width: fit-content;
+    pointer-events: none;
 }
 
 .taken-black img, .taken-white img {
@@ -269,7 +275,7 @@ ul.grid-letter li, ul.grid-number li {
     text-transform: uppercase;
 }
 
-button.reset, button.start {
+button.reset, button.start, button.play-again {
     font-family: 'Montserrat', sans-serif;
     font-size: 25px;
     font-weight: 800;
@@ -283,7 +289,7 @@ button.reset, button.start {
     margin: 0 20px;
 }
 
-button.reset:hover, button.start:hover {
+button.reset:hover, button.start:hover, button.play-again:hover {
     background-color: goldenrod;
     color: #111;
     border: 2px solid #111;
@@ -294,145 +300,80 @@ button.reset:hover, button.start:hover {
     pointer-events: none;
 }
 
-/* MEDIA QUERIES */
-
-@media screen and (max-width: 1609px) {
-
-    .content-grid {
-        margin: 20px auto;
-        display: grid;
-        grid-template-columns: 70px 750px 70px;
-        grid-template-areas:
-        "left board right"
-        ". reset .";
-    }
-
-    .chess-logo, .chess-logo2, .trivia-box, .gen-logo, .gen-trivia {
-        display: none;
-    }
-
+.promotions {
+    display: none;
 }
 
-@media screen and (max-width: 1449px) {
-
-    .banner {
-        padding: 0 20px;
-    }
-
+.win-notice {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: none;
+    place-items: center;
+    background-color: rgba(243, 232, 232, 0.863);
 }
 
-@media screen and (max-width: 1009px) {
-
-    .content-grid {
-        grid-template-columns: 750px;
-        grid-template-rows: 750px 60px 1fr 1fr;
-        grid-template-areas:
-        "board"
-        "reset"
-        "left"
-        "right";
-        row-gap: 5px;
-        height: fit-content;
-    }
-    
-    .taken-white {
-        width: 750px;
-        grid-template-columns: repeat(16, 1fr);
-    }
-    
-    .taken-black {
-        width: 750px;
-        grid-template-columns: repeat(16, 1fr);
-    }
-
+.win-container {
+    text-align: center;
 }
 
-@media screen and (max-width: 949px) {
-
-    .nav-links {
-        display: none;
-    }
-
-    .banner {
-        display: grid;
-        place-content: center;
-    }
-
+.winmessage {
+    font-family: 'Allura', cursive;
+    font-weight: 800;
+    line-height: 150px;
+    font-size: 200px;
 }
 
-@media screen and (max-width: 749px) {
-
-    .board {
-        width: 100vw;
-        height: 100vw;
-    }
-
-    .banner {
-        width: 100%;;
-    }
-
-    button.reset {
-        height: 6vw;
-        width: 27vw;
-        font-size: 3vw;
-    }
-
-    .content-grid {
-        width: 100vw;
-        grid-template-columns: 100vw;
-        grid-template-rows: 100vw 8vw 1fr 1fr;
-    }
-
-    .taken-white {
-        width: 100vw;
-    }
-    
-    .taken-black {
-        width: 100vw;
-    }
-
-    ul.grid-letter li, ul.grid-number li {
-        font-size: 2vw;
-    }
-
+.turn-msg, .time-left {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    margin: 30px 0;
 }
 
-@media screen and (max-width: 499px) {
-
-    .title-block {
-        width: 100%;
-    }
-
-    .brand, .divider {
-        display: none;
-    }
-
-    .activity-title {
-         font-size: 10vw;
-    }
-
-    .banner-wrapper {
-        height: 15vw;
-    }
-
-    .content-grid {
-        grid-template-rows: 100vw 8vw;
-    }
-
-    .taken-white {
-        display: none;
-    }
-    
-    .taken-black {
-        display: none;
-    }
+.promo-choices {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: none;
+    place-items: center;
+    align-content: center;
+    background-color: rgba(243, 232, 232, 0.863);
 }
 
-/* animations */
-
-@keyframes shine {
-    0% {background-color: #111;}
-    5% {background-color: goldenrod;}
-    10% {background-color: #111;}
-    100% {background-color: #111;}
+.promo-black, .promo-white {
+    width: 500px;
+    display: none;
+    grid-template-columns: repeat(4, 1fr);
+    place-items: center;
+    background-color: #111;
+    gap: 4px;
+    padding: 4px;
 }
+.choice {
+    width: 100%;
+    display: grid;
+    place-items: center;
+}
+
+.choice:hover {
+    box-shadow: 4px 4px 0px goldenrod, -4px -4px 0px goldenrod;
+}
+
+.promo-msg {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 40px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    margin: -80px 0px 30px 0px;
+}
+
+.promo-black .choice {
+    background-color: #A4A4A4;
+}
+
+.promo-white .choice {
+    background-color: #717171;
+}
+
