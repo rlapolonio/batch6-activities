@@ -257,7 +257,7 @@ function initializeBoard() {
     });
     toggleOccupied();
     recordState();
-    // board.style.pointerEvents = 'none';
+    board.style.pointerEvents = 'none';
     notice.innerHTML = 'press start';
 }
 
@@ -911,7 +911,3 @@ function blackTimer() {
         }
     }, 10);
 }
-
-
-// create promotion function
-// complete castling condition
