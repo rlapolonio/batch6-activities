@@ -8,7 +8,6 @@
         <link rel='shortcut icon' href='dice-5.ico' type='image/x-icon'>
         <title>Pig Game</title>
     </head>
-
     <body>
         <div class="wrapper clearfix">
             <div class="player-0-panel active">
@@ -58,9 +57,22 @@
             <div class="walk-container">
                 <img src="walk.gif" alt="walking" class="walk">
             </div>
-            
+            <button class="review hidden" onclick="toggleIns()">RULES</div>
         </div>
-        
+        <div class="ins-wrapper">
+            <div class="ins-box">
+                <div class="h1">Let's play PIG GAME!</div>
+                <ul class="rules">
+                    <li>The game consists of 2 players, taking turns per round.</li>
+                    <li>Each turn, a player rolls the dice as many times as he wishes. Each result is added to his ROUND score.</li>
+                    <li>However, if the player rolls a 1, all his ROUND score gets lost and his/her turn ends.</li>
+                    <li>The player can choose to 'Hold', adding his/her current ROUND score to his/her GLOBAL score, ending the turn.</li>
+                    <li>The first player to reach 100 points on GLOBAL score wins the game.</li>
+                </ul>
+                <img src="welcome.gif" alt="welcome" class="welcome">
+                <button class="btn-back" onclick="toggleIns()">Play now!</button>
+            </div>
+        </div>
         <script src="app.js"></script>
     </body>
 </html>

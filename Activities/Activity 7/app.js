@@ -26,6 +26,9 @@ let breakSnd = new Audio('pig_squeal.wav');
 let eatSnd = new Audio('eat.mp3');
 let winSnd = new Audio('win.mp3');
 let rollSnd = new Audio('dice.mp3');
+let bgmSnd = new Audio('bgm.mp3');
+    bgmSnd.volume = 0.4;
+    bgmSnd.loop = true;
 let rollInt;
 let rollCtr;
 let currentValue, rollTemp = 0;
@@ -38,8 +41,11 @@ let scoreBar1 = document.querySelector('.a-score-bar1');
 let scoreBar2 = document.querySelector('.a-score-bar2');
 let errorMsg = document.querySelector('.error-msg');
 let walkAnim = document.querySelector('.walk-container');
+let insWrapper = document.querySelector('.ins-wrapper');
+let reviewBtn = document.querySelector('.review');
 
 playSnd(eatSnd);
+playSnd(bgmSnd);
 
 function rollDice() {
     errorMsg.innerHTML = '';
@@ -121,7 +127,6 @@ function holdValue() {
             errorMsg.innerHTML = 'Roll dice first!';
         }
     } 
-    
 }
 
 function turnHandler() {
@@ -162,5 +167,11 @@ function checkWin() {
 function playSnd(sound) {
     sound.currentTime = 0;
     sound.play();
+}
+
+function toggleIns() {
+    insWrapper.classList.toggle('hidden');
+    reviewBtn.classList.toggle('hidden');
+    playSnd(eatSnd);
 }
 
