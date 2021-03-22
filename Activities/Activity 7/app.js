@@ -44,8 +44,7 @@ let walkAnim = document.querySelector('.walk-container');
 let insWrapper = document.querySelector('.ins-wrapper');
 let reviewBtn = document.querySelector('.review');
 
-playSnd(eatSnd);
-playSnd(bgmSnd);
+window.onload = playSnd(bgmSnd);
 
 function rollDice() {
     errorMsg.innerHTML = '';
@@ -172,6 +171,7 @@ function playSnd(sound) {
 function toggleIns() {
     insWrapper.classList.toggle('hidden');
     reviewBtn.classList.toggle('hidden');
+    walkAnim.classList.toggle('hidden');
     playSnd(eatSnd);
 }
 
