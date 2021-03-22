@@ -44,7 +44,7 @@ let walkAnim = document.querySelector('.walk-container');
 let insWrapper = document.querySelector('.ins-wrapper');
 let reviewBtn = document.querySelector('.review');
 
-window.onload = playSnd(bgmSnd);
+playSnd(bgmSnd);
 
 function rollDice() {
     errorMsg.innerHTML = '';
