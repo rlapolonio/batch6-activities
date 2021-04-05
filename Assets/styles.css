@@ -167,6 +167,12 @@ body {
     background-size:cover;
 }
 
+.img11 {
+    background: url("./images/activity_8.png");
+    background-position: top;
+    background-size:cover;
+}
+
 .img {
     width: 100%;
     height: 50%;

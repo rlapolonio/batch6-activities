@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="rlapolonio">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+        <title>Banking App</title>
+    </head>
+    <body>
+        <section class="banner">
+            <div class="wrapper1">
+                <div class="banner-header">BUNK SYSTEMS</div>
+                <div class="banner-slogan">deBUNKing obstacles</div>
+            </div>
+        </section>
+        <section class='wrapper2'>
+            <div class="admin-panel">
+                <div class="admin-welcome"></div>
+                <div class="admin-fn" onclick="log_out()">Logout</div>
+            </div>
+            <div class="fn-bar">
+                <div class="search-bar">
+                    <label for="search">Search: </label>
+                    <input type="text" name="search" id="search" placeholder="Account Name or Account Number" autocomplete="off" onkeyup="filter_list()">
+                    <div class="clear-btn" onclick="clear_search()">Clear</div>
+                </div>
+                <div class="btn-container">
+                    <div class="btn" id="new-trans" onclick="show_trans()">New<br>Transaction</div>
+                    <div class="btn" id="new-user" onclick="show_create_user()">New<br>Account</div>
+                </div>
+            </div>
+            <div class="user-panel">
+                <div class="filter">
+                    <div class='sort' id='num-filter' onclick="sort_number()">Account No.</div>
+                    <div class='sort active' id='name-filter' onclick="sort_name()">Account Name</div>
+                    <div class='sort' id='bal-filter' onclick="sort_balance()">Balance</div>
+                </div>
+                <div class="account-display">
+                    <div class="row"></div>
+                    <div class="row"></div>
+                    <div class="row"></div>
+                    <div class="row"></div>
+                    <div class="row"></div>
+                    <div class="row"></div>
+                    <div class="row"></div>
+                    <div class="row"></div>
+                    <div class="row"></div>
+                    <div class="row"></div>
+                    <div class="row"></div>
+                    <div class="row"></div>
+                    <div class="row"></div>
+                    <div class="row"></div>
+                    <div class="row"></div>
+                    <div class="row"></div>
+                    <div class="row"></div>
+                    <div class="row"></div>
+                    <div class="row"></div>
+                    <div class="row"></div>
+                </div>
+                <div class="page-ctrl">
+                    <div class="ctrl page-left" id='btn-left' onclick="previous_page()"><i class="fa fa-angle-double-left" aria-hidden="true"></i></div>
+                    <div class="ctrl page-num" id='page-num'>1</div>
+                    <div class="ctrl page-right" id='btn-right' onclick="next_page()"><i class="fa fa-angle-double-right" aria-hidden="true"></i></div>
+                </div>
+                <div class="storage-bar">
+                    <div class="btn load_storage" onclick="confirm_load()">Load Data</div>
+                </div>
+                <div class="history-bar">
+                    <div class="btn show_history disabled" onclick="show_history()">History</div>
+                </div>
+                <div class="accounts-status">X</div>
+            </div>
+        </section>
+        <section class="modal-wrapper" id="modal-wrapper">
+            <div class="modal-admin" id="log-in">
+                <h1>Welcome to Bunk!</h1>
+                <div class="login-container">
+                    <label for="admin-login">Username:</label><br>
+                    <input type="text" name="admin-login" id="admin-login" placeholder="Username" autocomplete="off"><br>
+                    <label for="admin-pass">Password:</label><br>
+                    <input type="password" name="admin-pass" id="admin-pass" placeholder="Password" autocomplete="off">
+                    <ul class="login-fn">
+                        <li class="login-options register-btn" onclick='show_register()'>Register</li>
+                        <li class="login-options login-btn" onclick='check_admin()'>Login</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-admin hidden" id="register">
+                <h2>New Admin Account Registration</h2>
+                <div class="reg-container">
+                    <label for="admin-reg">New Username:</label><br>
+                    <input type="text" name="admin-reg" id="admin-reg" placeholder="Username" autocomplete="off"><br>
+                    <label for="admin-pass-reg">Password:</label><br>
+                    <input type="password" name="admin-pass-reg" id="admin-pass-reg" placeholder="Password" autocomplete="off">
+                    <div class='modal-btn' id="reg-btn" onclick="confirm_register()">Next</div>
+                </div>
+                <div class='modal-close' onclick="close_register_window()"><i class="fa fa-times icon-white fa-lg" aria-hidden="true"></i></div>
+            </div>
+            <div class="modal hidden" id="trans-window">
+                <ul class="trans-header">
+                    <li class="transaction active-tab" id='depo-tab' onclick="show_deposit()">Deposit</li>
+                    <li class="transaction" id='with-tab' onclick="show_withdraw()">Withdraw</li>
+                    <li class="transaction" id='tran-tab' onclick="show_transfer()">Transfer</li>
+                </ul>
+                <div class="trans-content">
+                    <div class="trans-content-window deposit-window active-window">
+                        <h3>New Deposit Transaction</h3>
+                        <div class="depo-select"></div>
+                        <div class="current-bal" id='depo-bal'></div>
+                        <label for="depo-amount">Deposit Amount:</label>
+                        <input type="number" name="depo-amount" id="depo-amount" placeholder="PHP 1.00 minimum" min="1" autocomplete="off">
+                        <div class='modal-btn next' onclick="confirm_deposit()">Next</div>
+                    </div>
+                    <div class="trans-content-window withdraw-window">
+                        <h3>New Withdrawal Transaction</h3>
+                        <div class="with-select"></div>
+                        <div class="current-bal" id='with-bal'></div>
+                        <label for="with-amount">Withdrawal Amount:</label>
+                        <input type="number" name="with-amount" id="with-amount" placeholder="PHP 200.00 minimum" min="200" autocomplete="off">
+                        <div class='modal-btn next' onclick="confirm_withdraw()">Next</div>
+                    </div>
+                    <div class="trans-content-window transfer-window">
+                        <h3>New Transfer Transaction</h3>
+                        <div class="from-select"></div>
+                        <div class="current-bal" id='from-bal'></div>
+                        <label for="from-amount">Transfer Amount:</label>
+                        <input type="number" name="with-amount" id="from-amount" placeholder="PHP 200.00 minimum" min="200" autocomplete="off">
+                        <div class='info'>--- transfer to ---</div>
+                        <div class="tooo-select"></div>
+                        <div class="current-bal" id='tooo-bal'></div>
+                        <div class='modal-btn next' onclick="confirm_transfer()">Next</div>
+                    </div>
+                </div>
+                <div class="account-history hidden">
+                    <div class="acct-history-header"></div>
+                    <div class="acct-history-details">
+                        <div class="row acct-history-item"></div>
+                        <div class="row acct-history-item"></div>
+                        <div class="row acct-history-item"></div>
+                        <div class="row acct-history-item"></div>
+                        <div class="row acct-history-item"></div>
+                    </div>
+                </div>
+                <div class='modal-btn disabled delete' id='delete-btn' onclick="confirm_delete()">Delete</div>
+                <div class='modal-close' onclick="close_modal_window()"><i class="fa fa-times icon-white fa-lg" aria-hidden="true"></i></div>
+            </div>
+            <div class="modal4 hidden" id="add-user">
+                <h2>Create New Account</h2>
+                <div class="new-acct-container">
+                    <label for="new-acct-name">Account Name:</label>
+                    <input type="text" name="new-acct-name" id="new-acct-name" placeholder="Last name, First name" autocomplete="off"><br>
+                    <label for="new-acct-balance">Initial Balance:</label>
+                    <input type="number" name="new-acct-balance" id="new-acct-balance" placeholder="Initial Deposit" min="0" autocomplete="off">
+                </div>
+                <div class='modal-btn create-user' onclick="confirm_new_user()">Next</div>
+                <div class='modal-close' onclick="close_modal_window()"><i class="fa fa-times icon-white fa-lg" aria-hidden="true"></i></div>
+            </div>
+            <div class="modal hidden" id="history">
+                <h1 class="total-history-header">Latest Transactions</h1>
+                <div class="transaction-display">
+                    <div class="row trans-item"></div>
+                    <div class="row trans-item"></div>
+                    <div class="row trans-item"></div>
+                    <div class="row trans-item"></div>
+                    <div class="row trans-item"></div>
+                    <div class="row trans-item"></div>
+                    <div class="row trans-item"></div>
+                    <div class="row trans-item"></div>
+                    <div class="row trans-item"></div>
+                    <div class="row trans-item"></div>
+                </div>
+                <div class='modal-close' onclick="close_modal_window()"><i class="fa fa-times icon-white fa-lg" aria-hidden="true"></i></div>
+            </div>
+        </section>
+        <section class="modal-wrapper hidden" id="confirm-wrapper">
+            <div class="modal2" id="confirm">
+                <div class="confirm-header"></div>
+                <div class="confirm-details"></div>
+                <div class='modal-btn2' onclick="proceed_operation()">Confirm</button>
+            </div>
+            <div class='modal-close' onclick="close_confirm_window()"><i class="fa fa-times icon-white fa-lg" aria-hidden="true"></i></div>
+        </section>
+        <section class="modal-wrapper hidden" id="error-wrapper">
+            <div class="modal3" id="error">
+                <div class="error-header">Please Verify Input</div>
+                <div class="error-details"></div>
+                <div class="modal-btn3" onclick="close_error_window()">Okay</div>
+            </div>
+        </section>
+        <script src="app.js"></script>
+    </body>
+</html>
