@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="rlapolonio">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/font-awesome-4.7.0/css/font-awesome.min.css">
+    <title>PokéDex</title>
+</head>
+
+<body>
+    <section class="banner">
+        <div class="wrapper-2">
+            <div class="run-container">
+                <img src="assets/pikachu-run.gif" alt="running" class="run">
+            </div>
+            <h1 class="title">PokéDex</h1>
+        </div>
+    </section>
+    <section class="notice-banner">
+        <span class="notice-msg">Sword and Shield data might be inaccurate and lacking in various aspects due to the
+            fact that it is not taken directly from Nintendo's Pokemon ROMs. If you spot any mistake, please report it
+            <a href="https://github.com/PokeAPI/pokedex/issues" target="_blank">here</a>.</span>
+    </section>
+    <section class="wrapper-1">
+        <div class="fn-bar">
+            <div class="search-bar">
+                <label for="search">Search for Pokemon:</label>
+                <div class="search-input">
+                    <input type="text" name="search" id="search" placeholder="Name or National Pokedex #"
+                        autocomplete="off" onkeyup="search_list()">
+                    <div class="clear-search-btn" onclick="clear_search()"><i class="fa fa-times-circle"
+                            aria-hidden="true"></i></div>
+                </div>
+            </div>
+            <div class="filter-bar hidden">
+                <div class="by-type">
+                    <span class="type-header">By Type:</span><br>
+                    <div class="type-filter-box">
+                        <div class="type-filter">
+                            <div class="type-filter-name type-bug" id="bug-filter">bug</div>
+                        </div>
+                        <div class="type-filter">
+                            <div class="type-filter-name type-dark" id="dark-filter">dark</div>
+                        </div>
+                        <div class="type-filter">
+                            <div class="type-filter-name type-dragon" id="dragon-filter">dragon</div>
+                        </div>
+                        <div class="type-filter">
+                            <div class="type-filter-name type-electric" id="electric-filter">electric</div>
+                        </div>
+                        <div class="type-filter">
+                            <div class="type-filter-name type-fairy" id="fairy-filter">fairy</div>
+                        </div>
+                        <div class="type-filter">
+                            <div class="type-filter-name type-fighting" id="fighting-filter">fighting</div>
+                        </div>
+                        <div class="type-filter">
+                            <div class="type-filter-name type-fire" id="fire-filter">fire</div>
+                        </div>
+                        <div class="type-filter">
+                            <div class="type-filter-name type-flying" id="flying-filter">flying</div>
+                        </div>
+                        <div class="type-filter">
+                            <div class="type-filter-name type-ghost" id="ghost-filter">ghost</div>
+                        </div>
+                        <div class="type-filter">
+                            <div class="type-filter-name type-grass" id="grass-filter">grass</div>
+                        </div>
+                        <div class="type-filter">
+                            <div class="type-filter-name type-ground" id="ground-filter">ground</div>
+                        </div>
+                        <div class="type-filter">
+                            <div class="type-filter-name type-ice" id="ice-filter">ice</div>
+                        </div>
+                        <div class="type-filter">
+                            <div class="type-filter-name type-normal" id="normal-filter">normal</div>
+                        </div>
+                        <div class="type-filter">
+                            <div class="type-filter-name type-poison" id="poison-filter">poison</div>
+                        </div>
+                        <div class="type-filter">
+                            <div class="type-filter-name type-psychic" id="psychic-filter">psychic</div>
+                        </div>
+                        <div class="type-filter">
+                            <div class="type-filter-name type-rock" id="rock-filter">rock</div>
+                        </div>
+                        <div class="type-filter">
+                            <div class="type-filter-name type-steel" id="steel-filter">steel</div>
+                        </div>
+                        <div class="type-filter">
+                            <div class="type-filter-name type-water" id="water-filter">water</div>
+                        </div>
+                    </div>
+                    <div class="clear-type-filter">
+                        <div class="clear-type-filter-btn clear-btn" onclick="clear_type_filter()">Clear Type Filter
+                        </div>
+                    </div>
+                </div>
+                <div class="by-game">
+                    <span class="game-header">By Game:</span><br>
+                    <div class="game-filter-box">
+                        <div class="game-filter">
+                            <div class="game-filter-name" id="game-red">red</div>
+                        </div>
+                        <div class="game-filter">
+                            <div class="game-filter-name" id="game-blue">blue</div>
+                        </div>
+                        <div class="game-filter">
+                            <div class="game-filter-name" id="game-yellow">yellow</div>
+                        </div>
+                        <div class="game-filter">
+                            <div class="game-filter-name" id="game-gold">gold</div>
+                        </div>
+                        <div class="game-filter">
+                            <div class="game-filter-name" id="game-silver">silver</div>
+                        </div>
+                        <div class="game-filter">
+                            <div class="game-filter-name" id="game-crystal">crystal</div>
+                        </div>
+                        <div class="game-filter">
+                            <div class="game-filter-name" id="game-ruby">ruby</div>
+                        </div>
+                        <div class="game-filter">
+                            <div class="game-filter-name" id="game-sapphire">sapphire</div>
+                        </div>
+                        <div class="game-filter">
+                            <div class="game-filter-name" id="game-emerald">emerald</div>
+                        </div>
+                        <div class="game-filter">
+                            <div class="game-filter-name" id="game-firered">firered</div>
+                        </div>
+                        <div class="game-filter">
+                            <div class="game-filter-name" id="game-leafgreen">leafgreen</div>
+                        </div>
+                        <div class="game-filter">
+                            <div class="game-filter-name" id="game-diamond">diamond</div>
+                        </div>
+                        <div class="game-filter">
+                            <div class="game-filter-name" id="game-pearl">pearl</div>
+                        </div>
+                        <div class="game-filter">
+                            <div class="game-filter-name" id="game-platinum">platinum</div>
+                        </div>
+                        <div class="game-filter">
+                            <div class="game-filter-name" id="game-heartgold">heartgold</div>
+                        </div>
+                        <div class="game-filter">
+                            <div class="game-filter-name" id="game-soulsilver">soulsilver</div>
+                        </div>
+                        <div class="game-filter">
+                            <div class="game-filter-name" id="game-black">black</div>
+                        </div>
+                        <div class="game-filter">
+                            <div class="game-filter-name" id="game-white">white</div>
+                        </div>
+                        <div class="game-filter">
+                            <div class="game-filter-name" id="game-black-2">black-2</div>
+                        </div>
+                        <div class="game-filter">
+                            <div class="game-filter-name" id="game-white-2">white-2</div>
+                        </div>
+                    </div>
+                    <div class="clear-game-filter">
+                        <div class="clear-game-filter-btn clear-btn" onclick="clear_game_filter()">Clear Game Filter
+                        </div>
+                    </div>
+                </div>
+
+                <div class="confirm-filter">
+                    <div class="confirm-filter-btn" onclick="apply_filter()">Apply Filters</div>
+                    <div class="clear-all-filter-btn" onclick="clear_all_filters()">Clear Filters</div>
+                </div>
+            </div>
+            <div class="show-adv-search" onclick="show_adv_search()">
+                <span class="show-adv-search-txt">Advanced Search <i class="fa fa-chevron-circle-down show-adv"
+                        aria-hidden="true"></i></span>
+            </div>
+        </div>
+        <div class="list-container">
+            <div class="loading-page">
+                <span class="load-msg">Loading resources...</span>
+                <div class="spin-img">
+                    <i class="fa fa-circle-o-notch" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+        <div class="pg-ctrl">
+            <div class="ctrl page-left" id='btn-left' onclick="previous_page()"><i class="fa fa-angle-double-left"
+                    aria-hidden="true"></i></div>
+            <div class="ctrl page-num" id='page-num'>1</div>
+            <div class="ctrl page-right" id='btn-right' onclick="next_page()"><i class="fa fa-angle-double-right"
+                    aria-hidden="true"></i></div>
+        </div>
+        <div class="results-num-display">
+            <span class="results-num-msg"></span>
+        </div>
+        <div class="spotlight-modal hidden">
+            <div class="spotlight">
+                <div class="sp-name-field">
+                    <span class="sp-id"></span>
+                    <div class="sp-name"></div>
+                </div>
+                <div class="sp-img-box">
+                    <img src="" alt="" class="sp-img">
+                </div>
+                <div class="sp-types"></div>
+                <div class="sp-vitals">
+                    <span class="sp-ht"></span>
+                    <span class="sp-wt"></span>
+                </div>
+                <span class="info-text2">Possible Abilities:</span>
+                <div class="sp-abilities"></div>
+                <div class="close-btn" onclick="close_modal()"><i class="fa fa-arrow-left" aria-hidden="true"></i>Back
+                    to
+                    List</div>
+            </div>
+        </div>
+    </section>
+    <template class="tile-template">
+        <div class="poke-tile" onclick="">
+            <div class="img-box">
+                <img src="" alt="" loading="eager" class="poke-img">
+            </div>
+            <div class="detail-box">
+                <div class="poke-id">
+                    <div class="poke-num"></div>
+                    <div class="poke-name"></div>
+                </div>
+                <div class="poke-type">
+                    <span class="type1"></span>
+                    <span class="type2"></span>
+                </div>
+            </div>
+            <div class="name-mask"></div>
+        </div>
+    </template>
+    <template class="ability-template">
+        <div class="sp-ability">
+            <div class="sp-ability-name"></div>
+            <div class="sp-ability-desc"></div>
+        </div>
+    </template>
+    <template class="type-template">
+        <div class="poke-type">
+            <span class="sp-type1"></span>
+            <span class="sp-type2"></span>
+        </div>
+    </template>
+    <template class="no-display-template">
+        <div class="no-display">
+            <div class="no-display-header">No Results Found!</div>
+            <div class="no-display-message">Try other search criteria.</div>
+            <div class="no-display-mascot">
+                <img src="assets/jiggly.gif" alt="jiggly" class="mascot">
+            </div>
+        </div>
+    </template>
+    <script src="app.js"></script>
+</body>
+
+</html>

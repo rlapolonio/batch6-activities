@@ -173,6 +173,12 @@ body {
     background-size:cover;
 }
 
+.img12 {
+    background: url("./images/project_3.png");
+    background-position: top;
+    background-size:cover;
+}
+
 .img {
     width: 100%;
     height: 50%;
